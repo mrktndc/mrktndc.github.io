@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Data Sheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+        .form-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #8a2e2e;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #8a2e2e;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            width: 100%;
+            font-weight: bold;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border-spacing: 10px;
+            table-layout: fixed;
+        }
+        td {
+            padding: 5px;
+        }
+        .input-row {
+            margin-bottom: 15px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: none;
+            border-bottom: 2px solid #8a2e2e;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="number"]:focus,
+        input[type="date"]:focus,
+        select:focus {
+            border-color: #c56b6b;
+            background-color: #fff;
+        }
+        .radio-group input {
+            margin-right: 10px;
+        }
+        .radio-group {
+            display: flex;
+            flex-direction: vertical;
+        }
+        .checkbox-group input {
+            margin-right: 10px;
+        }
+        .checkbox-group {
+            display: flex;
+            flex-direction: row;
+        }
+        .parents-info-table {
+            width: 100%;
+            display: flex;
+            gap: 40px;
+        }
+        .button {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button button {
+            background-color: #8a2e2e;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .button button:hover {
+            background-color: #c56b6b;
+        }
+
+        h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #8a2e2e;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+            <img src="https://th.bing.com/th/id/R.28ea84d779b4d1ebab159aced4a45069?rik=7BFy4ptNXOjJ2A&pid=ImgRaw&r=0" alt="Logo" style="width: 250px; height: 250px; object-fit: contain;">
+            <div style="flex: 1; text-align: center;">
+                <h1>University of the East</h1>
+                <h2>Enrollment System</h2>
+                <br>
+                <h1>Personal Data Sheet</h1>
+                <h3 style="font-style: italic; text-align: center; color: #8a2e2e;">&lpar;Graduate School, Law, Medicine&rpar;</h3>
+            </div>
+            <div style="flex-shrink: 0; text-align: right;">
+                
+                <input type="text" name="program" placeholder="Program" style="width: 200px; margin-top: 10px;">
+                <br>
+                <input type="text" name="student-number" placeholder="Student #" style="width: 200px; margin-top: 10px;">
+            </div>
+        </div>
+
+        <form action="#" method="post">
+            <div class="section">
+                <table>
+                    <tr>
+                        <td colspan="2" style="width: 100%;"><input type="text" id="surname" name="surname" required></td>
+                        <td colspan="2" style="width: 100%;"><input type="text" id="given-name" name="given-name" required></td>
+                        <td colspan="2" style="width: 100%;"><input type="text" id="middle-name" name="middle-name"></td>
+                        <td colspan="2" style="width: 100%;"><input type="text" id="auxiliary-name" name="auxiliary-name"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center;"><label for="surname">Surname</label></td>
+                        <td colspan="2" style="text-align: center;"><label for="given-name">Given Name</label></td>
+                        <td colspan="2" style="text-align: center;"><label for="middle-name">Middle Name</label></td>
+                        <td colspan="2" style="text-align: center;"><label for="auxiliary-name">Auxiliary Name<br>&lpar;Sr, Jr, I, II, III, etc.&rpar;</label></td>
+                    </tr>
+                    
+                    <tr>
+                        <td colspan="8"><h3>STUDENT DETAILS:</h1></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="city-address">City Address:</label></td>
+                        <td colspan="8"><input type="text" id="city-address" name="city-address" required></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><label for="zip-code">Zip Code:</label></td>
+                        <td style="width: 100%;"><input type="text" id="zip-code" name="zip-code" required></td>
+                        <td><label for="tel-no">Tel. No.:</label></td>
+                        <td colspan="2" style="width: 100%;"><input type="tel" id="tel-no" name="tel-no"></td>
+                        <td><label for="email">E-mail Address:</label></td>
+                        <td colspan="3" style="width: 100%;"><input type="email" id="email" name="email"></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><label for="home-address">Home Address:</label></td>
+                        <td colspan="8"><input type="text" id="home-address" name="home-address" required></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="home-address-zip-code">Zip Code:</label></td>
+                        <td colspan="2" style="width: 100%;"><input type="text" id="home-address-zip-code" name="home-address-zip-code" required></td>
+
+                        <td>
+                        </td>
+
+                        <td><label for="region">Region:</label></td>
+                        <td colspan="2"><input type="text" id="region" name="region"></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="birthdate">Birthday:</label></td>
+                        <td colspan="2"><input type="date" id="birthdate" name="birthdate"></td>
+
+                        <td>
+                        </td>
+
+                        <td><label for="age">Age:</label></td>
+                        <td colspan="2"><input type="number" id="age" name="age"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="birthplace">Birthplace:</label></td>
+                        <td colspan="2"><input type="text" id="birthplace" name="birthplace"></td>
+                        
+                        <td>
+                        </td>
+
+                        <td><label for="religion">Religion:</label></td>
+                        <td colspan="2"><input type="text" id="religion" name="religion"></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="citizenship">Citizenship:</label></td>
+                        <td colspan="2"><input type="text" id="citizenship" name="citizenship"></td>
+
+                        <td>
+                        </td>
+
+                        <td><label for="sex">Sex:</label></td>
+                        <td colspan="2">
+                            <select id="sex" name="sex">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" style="margin-right: 200px;"><label for="acr-number">If Alien, ACR # (See Registrar):</label></td>
+                        <td><input type="text" id="acr-number" name="acr-number"></td>
+                    </tr>
+                </table>
+
+            </div>
+
+            <div class="section legal-status-section">
+                <table>
+                    <tr>
+                        <td style="vertical-align: top; font-size: 20px; color: #8a2e2e;">
+                            <b>Legal Status:</b>
+                        </td>
+
+                        <td class="radio-group">
+                            <input type="radio" id="citizen-rp" name="legal-status" value="citizen-rp">
+                            <label for="citizen-rp">Citizen of RP</label>
+                        </td>
+                        
+                        <td class="radio-group">
+                            <input type="radio" id="permanent-resident" name="legal-status" value="permanent-resident">
+                            <label for="permanent-resident">Permanent Resident</label>
+                        </td>
+
+                        <td class="radio-group">
+                            <input type="radio" id="student-visa" name="legal-status" value="student-visa">
+                            <label for="student-visa">Person granted permission to enter and remain as a student in RP</label>
+                        </td>
+
+                        <td class="radio-group">
+                            <input type="radio" id="worker-visa" name="legal-status" value="worker-visa">
+                            <label for="worker-visa">Person granted permission to enter and remain as a worker</label>
+                        </td>
+
+                         <td class="radio-group">
+                            <input type="radio" id="other-visa" name="legal-status" value="other-visa">
+                            <label for="other-visa">Other visa</label>
+                        </td>
+
+                        <td class="radio-group">
+                            <input type="radio" id="legal-status-not-known" name="legal-status-not-known" value="legal-status-not-known">
+                            <label for="legal-status-not-known">Legal status not known</label>
+                        </td>
+
+                        <td style="vertical-align: top; font-size: 20px; color: #8a2e2e;">
+                            <b>Civil Status:</b>
+                        </td>
+
+                        <td class="radio-group">
+                                                
+                                <input type="radio" id="single" name="civil-status" value="single">
+                                <label for="single">Single:</label>
+                        </td>
+                        <td class="radio-group">
+                            
+                            <input type="radio" id="married" name="civil-status" value="married">
+                            <label for="married">Married</label>
+                        </td>
+
+                        <td class="radio-group">
+                            
+                            <input type="radio" id="divorced" name="civil-status" value="divorced">
+                            <label for="divorced">Divorced</label>
+                        </td>
+                        <td class="radio-group">
+                            
+                            <input type="radio" id="widowed" name="civil-status" value="widowed">
+                            <label for="widowed">Widowed</label>
+                        </td>
+                        <td class="radio-group">
+                            
+                            <input type="radio" id="separated" name="civil-status" value="separated">
+                            <label for="separated">Separated</label>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"></td>
+
+                        <td class="radio-group">
+                        <input type="radio" id="working" name="working">
+                        <label for="working">Working:</label></td>
+
+                        <td class="radio-group">
+                        <input type="radio" id="not-working" name="working">
+                        <label for="not-working"> Not Working</label></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"></td>
+
+                        <td><label for="office-bus-tel"> If working: Office/Bus. Tel. #:</label></td>
+                        <td><input type="tel" id="office-bus-tel" name="office-bus-tel"></td>
+
+                    </tr>
+
+                </table>
+            </div>
+
+            <div class="parents-info-table">
+                <div class="father-info">
+                    <h3>FATHER'S INFORMATION:</h3>
+                    <table>
+                        <tr>
+                            <td><label for="father-surname">Surname:</label></td>
+                            <td><input type="text" id="father-surname" name="father-surname"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="father-first-name">First Name:</label></td>
+                            <td><input type="text" id="father-first-name" name="father-first-name"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="father-middle-name">Middle Name:</label></td>
+                            <td><input type="text" id="father-middle-name" name="father-middle-name"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="father-auxiliary-name">Auxiliary Name:</label></td>
+                            <td><input type="text" id="father-auxiliary-name" name="father-auxiliary-name"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="father-occupation">Occupation/Employment:</label></td>
+                            <td><input type="text" id="father-occupation" name="father-occupation"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="father-education">Educational Attainment:</label></td>
+                            <td><input type="text" id="father-education" name="father-education"></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="mother-info">
+                    <h3>MOTHER'S INFORMATION:</h3>
+                    <table>
+                        <tr>
+                            <td><label for="mother-surname">Surname:</label></td>
+                            <td><input type="text" id="mother-surname" name="mother-surname"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="mother-first-name">First Name:</label></td>
+                            <td><input type="text" id="mother-first-name" name="mother-first-name"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="mother-middle-name">Middle Name:</label></td>
+                            <td><input type="text" id="mother-middle-name" name="mother-middle-name"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="mother-auxiliary-name">Auxiliary Name:</label></td>
+                            <td><input type="text" id="mother-auxiliary-name" name="mother-auxiliary-name"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="mother-occupation">Occupation/Employment:</label></td>
+                            <td><input type="text" id="mother-occupation" name="mother-occupation"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="mother-education">Educational Attainment:</label></td>
+                            <td><input type="text" id="mother-education" name="mother-education"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="section">
+                <table>
+                    <tr>
+                        <td><label for="father-address">Parent's Address:</label></td>
+                        <td colspan="6"><input type="text" id="parents-address" name="parents-address"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="father-zip">Zip Code:</label></td>
+                        <td colspan="2"><input type="number" id="father-zip" name="parents-zip"></td>
+                        <td></td>
+                        <td><label for="parents-tel">Parent's Tel. #:</label></td>
+                        <td colspan="2"><input type="tel" id="parents-tel" name="parents-tel"></td>
+                    </tr>
+                </table>
+
+                <div class="section guardian-info">
+                    <h3>GUARDIAN'S INFORMATION: (If Applicable):</h3>
+                    <table>
+                        <tr>
+                            <td class="guardian-left" style="width: 48%; vertical-align: top;">
+                                <table>
+                                    <tr>
+                                        <td><label for="guardian-surname">Surname:</label></td>
+                                        <td><input type="text" id="guardian-surname" name="guardian-surname"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="guardian-first-name">First Name:</label></td>
+                                        <td><input type="text" id="guardian-first-name" name="guardian-first-name"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="guardian-middle-name">Middle Name:</label></td>
+                                        <td><input type="text" id="guardian-middle-name" name="guardian-middle-name"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="guardian-auxiliary-name">Auxiliary Name:</label></td>
+                                        <td><input type="text" id="guardian-auxiliary-name" name="guardian-auxiliary-name"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="guardian-occupation">Occupation/Employment:</label></td>
+                                        <td><input type="text" id="guardian-occupation" name="guardian-occupation"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="guardian-occupation">Off./Bus. Tel. #:</label></td>
+                                        <td><input type="tel" id="guardian-office-bus-tel" name="guardian-office-bus-tel"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td class="guardian-right" style="width: 48%; vertical-align: top;">
+                                <table>
+                                    <tr>
+                                        <td><label for="guardian-address">Guardian's Address:</label></td>
+                                        <td><input type="text" id="guardian-address" name="guardian-address"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="guardian-zip">Zip Code:</label></td>
+                                        <td><input type="text" id="guardian-zip" name="guardian-zip"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="guardian-tel">Tel. #:</label></td>
+                                        <td><input type="tel" id="guardian-tel" name="guardian-tel"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="button" style="text-align: center; margin-top: 20px;">
+                <button type="submit" style="background-color: #8a2e2e; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; transition: background-color 0.3s;">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
