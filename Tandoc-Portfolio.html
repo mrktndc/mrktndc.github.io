@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mark's Portfolio</title>
+</head>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500&display=swap');
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --ink:#0f0e0d;--ink2:#4a4845;--ink3:#8a8784;
+    --paper:#faf9f6;--paper2:#f2f0ea;--paper3:#e8e5dc;
+    --accent:#c84b2f;--accent2:#e8b97a;
+    --mono:'DM Mono',monospace;
+    --serif:'DM Serif Display',serif;
+    --sans:'Outfit',sans-serif;
+  }
+  body {
+    background:var(--paper);
+    font-family:var(--sans);
+    color:var(--ink);
+  }
+
+  .portfolio {
+    max-width:960px;
+    margin:0 auto;
+    padding:2rem 1.5rem 4rem;
+  }
+
+  /* NAV */
+  nav {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:1.5rem 0 3rem;
+    border-bottom:1px solid var(--paper3);
+  }
+  .nav-logo {
+    font-family:var(--mono);
+    font-size:13px;color:var(--ink3);
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+
+  .nav-links {
+    display:flex;
+    gap:2rem;
+  }
+  .nav-links a {
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--ink3);
+    text-decoration:none;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    transition:color .2s;
+  }
+  .nav-links a:hover{
+    color:var(--accent);
+  }
+
+  /* HERO */
+  .hero{
+    padding:5rem 0 4rem;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:3rem;
+    align-items:end;
+  }
+  .hero-label{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--accent);
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    margin-bottom:1rem;
+  }
+  .hero-title {
+    font-family:var(--serif);
+    font-size:clamp(48px,6vw,72px);
+    line-height:1.05;
+    color:var(--ink)
+  }
+  .hero-title em{
+    font-style:italic;
+    color:var(--accent);
+  }
+  .hero-bio{
+    font-size:15px;
+    color:var(--ink2);
+    line-height:1.8;
+    margin-bottom:1.5rem;
+  }
+  .hero-stack{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:1.5rem;
+  }
+  .tag{
+    font-family:var(--mono);
+    font-size:11px;
+    padding:4px 10px;
+    border:1px solid var(--paper3);
+    border-radius:2px;
+    color:var(--ink3);
+    background:var(--paper2);
+  }
+  .hero-cta{
+    margin-top:2rem;
+    display:flex;
+    gap:1rem;
+    align-items:center;
+  }
+  .btn-primary {
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:10px 20px;
+    background:var(--ink);
+    color:var(--paper);
+    border:none;
+    border-radius:2px;
+    cursor:pointer;
+    transition:background .2s;
+  }
+  .btn-primary:hover {
+    background:var(--accent);
+  }
+  .btn-ghost {
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink3);
+    text-decoration:none;
+    border-bottom:1px solid var(--paper3);
+    padding-bottom:2px;
+    transition:color .2s;
+    cursor:pointer;
+    background:none;
+    border-top:none;
+    border-left:none;
+    border-right:none
+  }
+  .btn-ghost:hover{
+    color:var(--accent);
+    border-bottom-color:var(--accent)
+  }
+
+  .hero-aside{
+    display:flex;
+    flex-direction:column;
+    gap:1.5rem
+  }
+  .stat-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1rem
+  }
+  .stat-card{
+    background:var(--paper2);
+    border:1px solid var(--paper3);
+    border-radius:4px;
+    padding:1.25rem;
+    position:relative;
+    overflow:hidden
+  }
+  .stat-card::before {
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:3px;
+    height:100%;
+    background:var(--accent2);
+  }
+  .stat-num {
+    font-family:var(--serif);
+    font-size:36px;
+    color:var(--ink);line-height:1;
+  }
+  .stat-label {
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--ink3);
+    margin-top:4px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+  }
+
+  .availability{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--ink3);
+    background:var(--paper2);
+    border:1px solid var(--paper3);
+    border-radius:4px;
+    padding:12px 16px
+  }
+  .dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#4caf79;
+    flex-shrink:0;
+    animation:pulse 2s infinite
+  }
+  @keyframes pulse{
+    0%,100%{
+      box-shadow:0 0 0 0 rgba(76,175,121,.4)
+    }
+    50%{
+      box-shadow:0 0 0 6px rgba(76,175,121,0)
+    }
+  }
+
+  /* SECTION HEADERS */
+  .section-header {
+    display:flex;align-items:baseline;gap:1rem;margin:4rem 0 2rem;border-top:1px solid var(--paper3);
+    padding-top:1.5rem;
+  }
+  .section-num {
+    font-family:var(--mono);font-size:11px;color:var(--accent);
+    letter-spacing:0.1em;
+  }
+  .section-title {
+    font-family:var(--serif);font-size:28px;color:var(--ink);
+  }
+  .section-line {
+    flex:1;height:1px;background:var(--paper3);
+  }
+
+  /* FILTERS */
+  .filter-bar {
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;margin-bottom:2rem;
+  }
+  .filter-btn {
+    font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;padding:6px 14px;border:1px solid var(--paper3);border-radius:2px;background:none;color:var(--ink3);cursor:pointer;transition:all .15s;
+  }
+  .filter-btn.active,.filter-btn:hover{
+    background:var(--ink);
+    color:var(--paper);
+    border-color:var(--ink)
+  }
+
+  /* PROJECT GRID */
+  .projects-grid {
+    display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;
+  }
+  .project-card {
+    background:var(--paper2);border:1px solid var(--paper3);border-radius:4px;overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s;
+  }
+  .project-card:hover {
+    transform:translateY(-3px);box-shadow:0 8px 24px rgba(15,14,13,.08);
+  }
+  .project-card.featured {
+    grid-column:span 2;
+  }
+  .project-thumb{
+    height:180px;background:var(--paper3);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;
+  }
+  .project-card.featured .project-thumb {
+    height:240px;
+  }
+  .thumb-label{
+    font-family:var(--mono);font-size:11px;color:var(--ink3);letter-spacing:0.08em;text-transform:uppercase;
+  }
+  .project-body {
+    padding:1.25rem;
+  }
+  .project-meta {
+    display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;
+  }
+  .project-type
+  {font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);padding:3px 8px;background:rgba(200,75,47,.08);border-radius:2px;
+  }
+  .project-year {
+    font-family:var(--mono);font-size:11px;color:var(--ink3);
+  }
+  .project-name {
+    font-family:var(--serif);font-size:20px;color:var(--ink);margin-bottom:0.5rem;line-height:1.2;
+  }
+  .project-desc {
+    font-size:13px;color:var(--ink2);line-height:1.6;margin-bottom:1rem;
+  }
+  .project-tags {
+    display:flex;flex-wrap:wrap;gap:6px;
+  }
+  .project-tag {
+    font-family:var(--mono);font-size:10px;
+    padding:3px 8px;
+    border:1px solid var(--paper3);border-radius:2px;
+    color:var(--ink3);
+  }
+
+  /* ABOUT STRIP */
+  .about-grid {
+    display:grid;grid-template-columns:2fr 1fr;
+    gap:3rem;
+    padding:2.5rem;background:var(--paper2);border:1px solid var(--paper3);border-radius:4px;
+  }
+  .about-heading {
+    font-family:var(--serif);font-size:22px;
+    color:var(--ink);
+    margin-bottom:1rem;font-style:italic;
+  }
+  .about-text {
+    font-size:14px;
+    color:var(--ink2);line-height:1.85;
+  }
+  .education-title {
+    font-family:var(--mono);font-size:11px;color:var(--ink3);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:1rem;
+  }
+  .edu-item{
+    border-left:2px solid var(--paper3);padding-left:1rem;margin-bottom:1rem;
+  }
+  .edu-degree{
+    font-size:14px;font-weight:500;color:var(--ink);
+  }
+  .edu-school{
+    font-size:13px;color:var(--ink2);
+  }
+  .edu-year{
+    font-family:var(--mono);font-size:11px;color:var(--accent);
+  }
+
+  /* CONTACT */
+  .contact-strip {
+    display:flex;justify-content:space-between;align-items:center;padding:2rem 2.5rem;
+    background:var(--ink);border-radius:4px;
+    margin-top:1.5rem;
+  }
+  .contact-heading {
+    font-family:var(--serif);font-size:24px;color:var(--paper);font-style:italic;
+  }
+  .contact-links {
+    display:flex;
+    gap:1.5rem;
+  }
+  .contact-link {
+    font-family:var(--mono);font-size:12px;color:var(--paper2);text-decoration:none;letter-spacing:0.06em;
+    text-transform:uppercase;
+    opacity:0.7;
+    transition:opacity .2s;
+  }
+  .contact-link:hover {
+    opacity:1;
+  }
+
+  /* FOOTER */
+  footer {
+    display:flex;justify-content:space-between;align-items:center;
+    padding:1.5rem 0;
+    margin-top:2rem;
+    border-top:1px solid var(--paper3);
+  }
+  .footer-text {
+    font-family:var(--mono);font-size:11px;color:var(--ink3);
+  }
+
+  /* THUMB PATTERNS */
+  .thumb-a {
+    background-image:url(images/dev-page-thumb.png);
+    background-size: 440px;
+  }
+  .thumb-b {
+    background-image:url(images/pq1-thumb.png);
+    background-size: 440px;
+  }
+  .thumb-c {
+    background-image:url(images/p-exam-thumb.png);
+    background-size: 440px;
+  }
+  .thumb-d {
+    background-image:url(images/table-of-contents-thumb.png);
+    background-size: 440px;
+  }
+  .thumb-e {
+    background-image:url(images/midterm-act-3.png);
+    background-size: 440px;
+  }
+
+    .thumb-f {
+    background-image:url(images/midterm-exam-menu.png);
+    background-size: 440px;
+  }
+
+    .thumb-g {
+    background-image:url(images/midterm-exam.png);
+    background-size: 440px;
+  }
+
+  .thumb-h {
+    background-image:url(images/finals-act-2-thumb.png);
+    background-size: 440px;
+  }
+
+  .thumb-i {
+    background-image:url();
+    background-size: 440px;
+  }
+
+  @media(max-width:640px){
+    .hero,.projects-grid,.about-grid{grid-template-columns:1fr}
+    .project-card.featured{grid-column:span 1}
+    .contact-strip{flex-direction:column;gap:1.5rem;text-align:center}
+    .contact-links{flex-wrap:wrap;justify-content:center}
+  }
+</style>
+<body>
+  <div class="portfolio">
+
+  <nav>
+    <span class="nav-logo">CIP 1101 - Integrative Programming and Technologies 1 · Portfolio</span>
+    <div class="nav-links">
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-main">
+      <h1 class="hero-title">Hello,<br><em>I'm Mark.</em></h1>
+      <div class="hero-stack">
+        <span class="tag">2nd Year Student</span>
+        <span class="tag">Bachelor of Science in Information Technology</span>
+      </div>
+      <div class="hero-cta">
+        <a href="#projects"><button class="btn-primary">View projects</button></a>
+        <a href="#lecture-files"><button class="btn-primary">View lecture Files</button></a>
+      </div>
+    </div>
+    <div class="hero-aside">
+      <div class="stat-row">
+        <div class="stat-card" style="width: 350px; height: 350px;">
+          <img src="images/mark.png" style="width: 100%;">
+        </div>
+    </div>
+  </section>
+
+  <div class="section-header" id="projects">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Projects</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="projects-grid">
+    
+    <a href="pg-developer-page/DevelopersPage.html" style="text-decoration: none;" target="_blank">
+    <div class="project-card">
+      <div class="project-thumb thumb-a">
+        <span class="thumb-label"></span>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-type">PRELIMINARIES</span>
+          <span class="project-year">2026</span>
+        </div>
+        <h3 class="project-name">Prelim Activity 2 - Developer's Page</h3>
+        <p class="project-desc"></p>
+        <div class="project-tags">
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">CSS</span>
+        </div>
+      </div>
+    </div>
+    </a>
+
+    <a href="pg-prelim-quiz-1/PreQuiz1.html" style="text-decoration: none;" target="_blank">
+      <div class="project-card">
+      <div class="project-thumb thumb-b">
+        <span class="thumb-label"></span>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-type">PRELIMINARIES</span>
+          <span class="project-year">2026</span>
+        </div>
+        <h3 class="project-name">Prelim Quiz 1 - My Favorite Place</h3>
+        <div class="project-tags">
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">CSS</span>
+        </div>
+      </div>
+    </div>
+    </a>
+
+    <a href="pg-prelim-exam/index.html" style="text-decoration: none;" target="_blank">
+    <div class="project-card">
+      <div class="project-thumb thumb-c">
+        <span class="thumb-label"></span>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-type">PRELIMINARIES</span>
+          <span class="project-year">2026</span>
+        </div>
+        <h3 class="project-name">Prelim Exam - Furniture Sale</h3>
+        <div class="project-tags">
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">CSS</span>  
+        </div>
+      </div>
+    </div>
+    </a>
+
+    <a href="pg-midterm-act-1/list.html" style="text-decoration: none;" target="_blank">
+    <div class="project-card">
+      <div class="project-thumb thumb-d">
+        <span class="thumb-label"></span>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-type">Midterms</span>
+          <span class="project-year">2026</span>
+        </div>
+        <h3 class="project-name">Midterm Activity 1 - Lists- Table of Contents</h3>
+        <div class="project-tags">
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">CSS</span>
+        </div>
+      </div>
+    </div>
+    </a>
+
+    <a href="pg-midterm-act-3/index.html" style="text-decoration: none;" target="_blank">
+    <div class="project-card">
+      <div class="project-thumb thumb-e">
+        <span class="thumb-label"></span>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-type">Midterms</span>
+          <span class="project-year">2026</span>
+        </div>
+        <h3 class="project-name">Midterm Activity 3 - Image and Image Mapping</h3>
+        <div class="project-tags">
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">CSS</span>
+        </div>
+      </div>
+    </div>
+    </a>
+    
+    <a href="pg-midterm-exam-menu/midterm.html" style="text-decoration: none;" target="_blank">
+    <div class="project-card">
+      <div class="project-thumb thumb-f">
+        <span class="thumb-label"></span>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-type">Midterms</span>
+          <span class="project-year">2026</span>
+        </div>
+        <h3 class="project-name">Midterm Exam - Menu Page for Restaurant</h3>
+        <div class="project-tags">
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">CSS</span>
+        </div>
+      </div>
+    </div>
+    </a>
+
+    <a href="pg-midterm-exam/MidtermExam.html" style="text-decoration: none;" target="_blank">
+    <div class="project-card">
+      <div class="project-thumb thumb-g">
+        <span class="thumb-label"></span>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-type">Midterms</span>
+          <span class="project-year">2026</span>
+        </div>
+        <h3 class="project-name">Midterm EXAM GROUP - Informative Page</h3>
+        <div class="project-tags">
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">CSS</span>
+        </div>
+      </div>
+    </div>
+    </a>
+    
+    <a href="pg-finals-act-2/FinAct2.html" style="text-decoration: none;" target="_blank">
+    <div class="project-card">
+      <div class="project-thumb thumb-h">
+        <span class="thumb-label"></span>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-type">Finals</span>
+          <span class="project-year">2026</span>
+        </div>
+        <h3 class="project-name">Final Activity 2 - Admission Form</h3>
+        <div class="project-tags">
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">CSS</span>
+        </div>
+      </div>
+    </div>
+    </a>
+
+    <a href="" style="text-decoration: none;">
+    <div class="project-card">
+      <div class="project-thumb thumb-i">
+        <span class="thumb-label"></span>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-type">Finals</span>
+          <span class="project-year">2026</span>
+        </div>
+        <h3 class="project-name">FINAL PROJECT - Pinas Sarap</h3>
+        <div class="project-tags">
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">CSS</span>
+        </div>
+      </div>
+    </div>
+    </a>
+
+  </div>
+
+  <!--Lecture Files-->
+    <div class="section-header" id="lecture-files">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Lecture Files</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="projects-grid">
+    
+    <a href="" style="text-decoration: none;">
+    <div class="project-card">
+      <div class="project-thumb thumb-l1">
+        <span class="thumb-label"></span>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-type">Lecture File</span>
+          <span class="project-year">2026</span>
+        </div>
+        <h3 class="project-name">Lecture 1 -  Intro to Web Design and Components</h3>
+        <p class="project-desc">Description Here</p>
+        <div class="project-tags">
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">CSS</span>
+        </div>
+      </div>
+    </div>
+    </a>
+
+    <a href="" style="text-decoration: none;">
+      <div class="project-card">
+      <div class="project-thumb thumb-l2">
+        <span class="thumb-label"></span>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-type">Lecture File</span>
+          <span class="project-year">2026</span>
+        </div>
+        <h3 class="project-name">Lecture 2 - HTML Structures</h3>
+        <p class="project-desc">Description Here</p>
+        <div class="project-tags">
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">CSS</span>
+        </div>
+      </div>
+    </div>
+    </a>
+
+    <a href="" style="text-decoration: none;">
+    <div class="project-card">
+      <div class="project-thumb thumb-l3">
+        <span class="thumb-label"></span>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-type">Lecture File</span>
+          <span class="project-year">2026</span>
+        </div>
+        <h3 class="project-name">Lecture 3 - Tables</h3>
+        <p class="project-desc">Description Here</p>
+        <div class="project-tags">
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">CSS</span>  
+        </div>
+      </div>
+    </div>
+    </a>
+
+    <a href="" style="text-decoration: none;">
+    <div class="project-card">
+      <div class="project-thumb thumb-l4">
+        <span class="thumb-label"></span>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-type">Midterms</span>
+          <span class="project-year">2026</span>
+        </div>
+        <h3 class="project-name">Lecture 4 - List, Links, and Images</h3>
+        <p class="project-desc">Description Here</p>
+        <div class="project-tags">
+          <span class="project-tag">Flutter</span>
+          <span class="project-tag">Firebase</span>
+          <span class="project-tag">Tesseract</span>
+        </div>
+      </div>
+    </div>
+    </a>
+
+    <a href="" style="text-decoration: none;">
+    <div class="project-card">
+      <div class="project-thumb thumb-l5">
+        <span class="thumb-label"></span>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-type">Midterms</span>
+          <span class="project-year">2026</span>
+        </div>
+        <h3 class="project-name">Lecture 5 - CSS</h3>
+        <p class="project-desc">Description Here</p>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">TensorFlow</span>
+          <span class="project-tag">TF.js</span>
+        </div>
+      </div>
+    </div>
+    </a>
+    
+    <a href="" style="text-decoration: none;">
+    <div class="project-card">
+      <div class="project-thumb thumb-l6">
+        <span class="thumb-label"></span>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-type">Midterms</span>
+          <span class="project-year">2026</span>
+        </div>
+        <h3 class="project-name">Lecture 6 - Multimedia and Forms</h3>
+        <p class="project-desc">Description Here</p>
+        <div class="project-tags">
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">CSS</span>
+        </div>
+      </div>
+    </div>
+    </a>
+
+    <a href="" style="text-decoration: none;">
+    <div class="project-card">
+      <div class="project-thumb thumb-l7">
+        <span class="thumb-label"></span>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-type">Midterms</span>
+          <span class="project-year">2026</span>
+        </div>
+        <h3 class="project-name">Lecture 7 - Bootstrap</h3>
+        <p class="project-desc">Description Here</p>
+        <div class="project-tags">
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">CSS</span>
+        </div>
+      </div>
+    </div>
+    </a>
+
+  </div>
+
+  <div class="contact-strip">
+    <p class="contact-heading">Let's work together.</p>
+    <div class="contact-links">
+      <a class="contact-link" href="#">Email</a>
+      <a class="contact-link" href="#">GitHub</a>
+      <a class="contact-link" href="#">LinkedIn</a>
+      <a class="contact-link" href="#">Resume</a>
+    </div>
+  </div>
+
+  <footer>
+    <span class="footer-text">Alex Rivera · CS Portfolio · 2024</span>
+    <span class="footer-text">Built with HTML, CSS, JS</span>
+  </footer>
+
+</div>
+
+</body>
+</html>
+
