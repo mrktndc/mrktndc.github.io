@@ -1,0 +1,74 @@
+body {
+    text-align: center;
+    margin: 100px;
+    padding: 50px;
+    border: solid black 1px;
+    border-radius: 50px;
+}
+
+.link-img{
+    margin-left: 30px;
+    width: 400px;
+}
+
+.float-img{
+    float: right;
+    width: 400px;
+}
+
+.container {
+  position: relative;
+  display: inline-block;   
+  line-height: 0;          
+}
+
+.container img {
+  display: block;
+  width: 400px;            
+  height: auto;
+}
+
+.hover-text {
+  position: absolute;
+  inset: 0;               
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  font-size: 18px;
+  text-align: center;
+}
+
+.container:hover .hover-text {
+  opacity: 1;
+}
+
+.shadow-img {
+    box-shadow: 20px 20px 10px gray;
+    width: 400px;
+}
+
+.mark-mask {
+    mask-image: url(images/mark.png);
+    mask-repeat: no-repeat;
+    mask-size: cover;
+    mask-position: center;
+
+}
+
+#shape-outside-circle {
+    display: block;
+    margin: 0 auto;
+    width: 1000px;
+    clip-path: circle(30%);
+    shape-outside: circle(50%);
+}
+
+#shape-outside-triangle {
+    float: center;
+    shape-outside: polygon(0 0, 100% 50%, 0 100%);
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+}

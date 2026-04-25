@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>MIDLEC6</title>
+</head>
+
+<body>
+
+    <!--LAUZON 1-4-->
+
+    <div>
+        <h1>1. Image with 2px borders with an alternative text</h1>
+        <img src="https://media.istockphoto.com/id/1264585148/photo/funny-hair-cat-are-standing-and-dancing.jpg?s=612x612&w=0&k=20&c=44X2zZQw-AQBS5o2siXZZZxRVhOWdodW_1r0y5Z8n-U=" width="450" alt="A full body image of a cat stretching upwards" style="border: 2px solid;">
+    </div>
+    
+    <div>
+        <h1>2. Image with a definite size (5x5" / 480x480px)</h1>
+        <img src="https://wallpapers.com/images/featured/funny-duck-pictures-wuzoov0m65uowzu0.jpg" width="480px" height="480px" alt="A close up image of a duck with its mouth open">
+        <h2>This image follows the 1 inch = 96px rule, making the image 480px by 480px (96 x 5).</h2>
+    </div>
+
+    <div>
+        <h1>3. Image with round borders</h1>
+        <img src="https://img.youtube.com/vi/oMAn1AXXEu0/maxresdefault.jpg" width="450px" style="border-radius: 80px;" alt="An image of two dogs next to each other. The dog on the left is smiling while the one on the right seems spooked.">
+    </div>
+
+    <div>
+        <h1>4. Image with round borders on top left and bottom right only</h1>
+        <img src="https://hyrax.world/wp-content/uploads/2024/06/381493196_837620917768581_635107292374656496_n-1024x1024-1.jpeg" width="350px" style="border-top-left-radius: 40px; border-bottom-right-radius: 40px;" alt="An image of the face of a hyrax.">
+    </div>
+
+    <!--SANTOS, J. 5-8-->
+
+    <div>
+        <h1>5. Image that links to www.ue.edu.ph</h1>
+        <a href="https://www.ue.edu.ph">
+            <img src="https://www.ue.edu.ph/mla/wp-content/uploads/2020/12/UE_RED_SEAL_09.png" alt="UE_Logo" class="link-img">
+        </a>
+    </div>
+    
+    <div>
+        <h1>6. Image with a float application</h1>
+        <img src="https://images.steamusercontent.com/ugc/2035104565156933841/5B00943B2DB5822EC081155D866584D38140F0F0/ " alt="capybara" class="float-img"> 
+        <h2>This image uses the float tag to the right</h2>
+        <div style="clear: both;"></div>
+    </div>
+
+    <div>
+        <h1>7. Image with a hovering effect</h1>
+        <div class="container">
+            <img src="https://www.nhm.ac.uk/content/dam/nhm-www/discover/axolotl/axolotl-pink-captive-bred-two-column.jpg" alt="axolotl">
+            <div class="hover-text">
+                axolotl
+            </div>
+        </div>
+        <h2>This image used <code>.container:hover .hover-text</code></h2>
+    </div> 
+
+    <div>
+        <h1>8. Image with a box shadow effect</h1>
+        <img src="https://media.istockphoto.com/id/964611070/photo/funny-burrowing-owl-athene-cunicularia.jpg?s=612x612&w=0&k=20&c=H1uU0nYj-vUB13lWo19LQeZ7ToMty_fVjR3LD87xqaE=" alt="Owl" class="shadow-img">
+        <h2>This image used <code>box-shadow: 20px 20px 10px gray;</code></h2>
+    </div>
+        
+    <!--TANDOC 9-11 -->
+
+    <div>
+        <h1>9. Image with shape-outside application &lpar;1&rpar;</h1>
+        <img src="https://image.freepik.com/free-photo/welsh-corgi-pembroke-glasses_98296-994.jpg" alt="A photo of a corgi with glasses." id="shape-outside-circle" style="display:block; margin:0 auto;"> 
+        <h2>This image used <code>shape-outside: circle(45);</code></h2>
+    </div>
+
+    <div>
+        <h1>10. Image with shape-outside application &lpar;2&rpar;</h1>
+        <img src="https://th.bing.com/th/id/R.37ab3a587f083d7870b7ad957d6e3e95?rik=ZkNafJp2OpI%2b3g&pid=ImgRaw&r=0" alt="A photo of cat with glasses." id="shape-outside-triangle"> 
+        <h2>This image used <code>shape-outside: polygon(0 0, 100% 50%, 0 100%);
+        </code></h2>
+    </div>
+        
+    <div>
+        <h1>11. Image with the mask-image property</h1>
+        <div class="mark-mask"><img src="https://i.pinimg.com/originals/b6/59/64/b6596435199b5003cd05f20f442e8975.jpg?fbclid=IwY2xjawQJNTJleHRuA2FlbQIxMABicmlkETIwOVZVMUgybHU4NXNQNkZPc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHvBVXcrdP5b_3rZSH59Qx1oNlXSpGsk1200JvTPTzhpUMuzsqoDGVxjrD_cp_aem_Tbg7bU3hFKhpd_PJAqewPg"></div>
+        <h2>This is an image of Dingalan with a "Mark" mask.</h2>
+        <h3>Note: This part of the assignment is having trouble being displayed when not opened in VSCode.</h3>
+
+    </div>
+    
+    <!--All members-->
+    
+    <h1>12. Image map</h1>
+    <img src="images/shapes.png" alt="Shapes" usemap="#shapemap">
+
+    <map name="shapemap">
+        <area shape="circle" coords="213,307,163" href="circle.html">
+        <area shape="poly" coords="559,155, 390,475, 727,475" alt="triangle" href="triangle.html">
+        <area shape="rect" coords="776,172,1075,462" alt="rectangle" href="square.html">
+    </map>
+
+    <h1>13. Image map with 2 links inside</h1>
+    <img src="images/ue.png" alt="UE" usemap="#uemap">
+
+    <map name="uemap">
+        <area shape="poly" coords="212,182,259,182,259,275,259,321,260,350,265,365,272,376,281,383,294,388,310,389,327,389,345,381,356,370,361,359,365,345,365,326,365,182,412,182,412,265,412,329,410,361,407,375,400,392,391,404,376,416,363,423,349,428,334,430,314,431,298,431,282,429,264,424,252,418,241,411,229,398,220,384,215,368,213,359,212,347" href="https://ue.instructure.com/login/canvas">
+        <area shape="poly" coords="474,181,639,182,639,223,524,223,524,281,624,281,624,320,524,321,524,388,641,388,641,429,475,429,475,399" href="https://apps.ue.edu.ph/portals/sp/">
+    </map>
+
+    <h2>The letter "U" leads to the website: <a href="https://ue.instructure.com/login/canvas">https://ue.instructure.com/login/canvas</a></h2>
+    <h2>The letter "E" leads to the website: <a href="https://apps.ue.edu.ph/portals/sp/">https://apps.ue.edu.ph/portals/sp/</a></h2>
+
+</body>
+
+</html>
