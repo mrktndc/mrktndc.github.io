@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Developer's Page</title>
+
+<style>
+
+p {
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 30px;
+}
+
+h1 {
+
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+h2 {
+
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+pre {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 35px;
+}
+
+body{
+    background-color: #26382f;
+}
+
+.center {
+
+    text-align: center;
+
+}
+
+.justify {
+
+    text-align: justify;
+
+}
+
+.white-text {
+
+    color:#F8F4E3;
+
+}
+
+
+.body-container {
+  padding: 50px;
+  margin: auto;
+}
+
+/* INTRODUCTION */
+
+.introduction-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 10px;
+  padding-left: 100px;
+  padding-right: 100px;
+  background-size: cover;
+  border: solid rgb(255, 255, 255) 1px;
+}
+
+.introduction-container div{
+  padding: 50px;
+  margin: auto;
+
+}
+
+#avatar-img {
+    width: 400px;
+    height: 400px;
+    border-radius: 10%;
+    align-self: center;
+    margin: auto;
+}
+
+/* BACKGROUND */
+
+.background-container {
+    padding-top: 50px;
+    margin: auto;
+}
+
+.background-container div {
+    padding: 10px;
+    margin: auto;
+}
+
+/* EDUCATION */
+
+.education-container {
+    padding-right: 50px;
+    padding-left: 10px;
+    margin: auto;
+}
+
+.triple-grid{
+  display: grid;
+  grid-template-columns: 33.33% 33.33% 33.33%;
+  gap: 10px;
+}
+
+.triple-grid div{
+  padding: 50px;
+  border: solid white 1px;
+  background-color: #566C59;
+}
+
+/* HOBBIES AND INTERESTS */
+
+.hobbies-container{
+    padding-right: 50px;
+    padding-left: 50px;
+    margin: auto;
+}
+
+.digital-art-container{
+    display: grid;
+    padding: 20px;
+    grid-template-columns: auto auto auto;
+}
+
+.digital-art-container div{
+    margin: auto;
+}
+
+#artwork{
+    height: 200px;
+    border: solid white 2px;
+    margin: auto;
+}
+
+#photography{
+
+    height: 250px;
+    border: solid white 2px;
+    margin: auto;
+
+}
+
+/* SKILLS */
+
+.skills-container{
+    display: grid;
+    padding-right: 50px;
+    padding-left: 50px;
+    margin: auto;
+    grid-template-columns: auto;
+}
+
+.skills-container div{
+    padding-right: 50px;
+    padding-left: 50px;
+    margin: auto;
+}
+
+/* FOOTER */
+
+footer {
+
+    padding: 50px;
+
+}
+
+.favorite-movies {
+    padding: 50px;
+    margin: auto;
+    color: rgb(255, 255, 255);
+}
+
+.movie-scene {
+    justify-content: center;
+    text-align: center;
+}
+
+.audio-container {
+  padding: 50px;
+  margin: auto;
+  color: rgb(255, 255, 255);
+}
+
+.audio-track {
+    padding: 10px;
+    margin: auto;
+    border-radius: 10px; 
+}
+.audio-track img{
+    max-width: 120px;
+    max-height: 120px;
+    border-radius: 10px;
+    float:inline-start;
+}
+
+.audio-track h2 {
+    text-align: left;
+    padding-left: 5px;
+    color: black;
+}
+
+.music {
+    padding-left: 150px;
+}
+
+.purple {
+    background-color: rgb(163, 129, 241);
+}
+
+.blue {
+    background-color: rgb(119, 183, 185);
+}
+
+.dark-blue {
+    background-color: rgba(111, 190, 221, 0.568);
+}
+
+.red {
+    background-color: rgba(255, 115, 115, 0.568);
+}
+
+.brown {
+    background-color: rgba(250, 179, 113, 0.568);
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+<div class="body-container">
+
+    <!--Introduction Section: Contains brief information about myself, such as: age, goals, and my motto in life.-->
+    <section>
+
+        <div class="introduction-container" style="background-image: url('images/2025_BEABADOOBEEWARMFINAL.png');">
+            
+            <div class="image-container">
+
+                <!--<img src="2025_Astreaia.jpg" alt="Mark_Avatar" id="avatar-img">-->
+
+                <img src="images\mark-picture.jpg" alt="Mark_Avatar" id="avatar-img">
+
+            </div>
+
+            <div>
+                <header>
+                <h1 class="white-text"> Hello! I'm Mark. 🙂</h1>
+                <p class="justify white-text"> I am a <b>20-year-old</b> daydreamer, aspiring to be a <b>software/web developer</b> in the future. I started to develop my interest in programming when I was in high school, which made me decide to take my current degree program. 
+                    
+                <br><br>
+                    
+                Currently, I am on my <b>2nd year</b> as a <b>BSIT</b> student in <b>University of the East - Manila.</b> 
+                
+                <br><br> 
+                
+                My motto in life that I try to live by is simple: <b>“Do it, even if you&apos;re scared.”</b>
+                </p>
+                </header>
+            </div>
+        
+        </div>
+
+    </section>
+
+    <!--A Short Background Section: Contains a short background about myself including: year of birth, early childhood experiences, and other information.-->
+    <section>
+
+        <div class="background-container">
+
+            <hr>
+
+            <div>
+
+            <h1 class="white-text"> A Short Background 🌿</h1>
+            <p class="justify white-text"> &nbsp;&nbsp;&nbsp;&nbsp; On a Sunday afternoon back in 2005, both young and new 
+            parents, Mark and Liza, were taken by surprise as they had to rush to the nearest emergency 
+            hospital - the reason? I was about to be born. After hours of painful labor that my mother had 
+            to endure, I finally opened my naive little eyes and cried as loud as I can when I realized that 
+            I was born into a bittersweet world full of possibilities yet at the same time &hyphen; <b>full of cruelty</b>. 
+            My parents, like any other parent, aspired to create a good life for our family, which required 
+            them to work abroad as <i>Overseas Filipino Workers</i> (OFWs). However, both of them had 
+            decided to part ways before I even reached my adolescence. Due to this, I grew up without 
+            having my parents by my side, and I was left in the care of my sweet grandmother and my 
+            loving aunt, and ever since, I grew up in an environment full of strong and independent 
+            women who provided me with the right amount of support, care, and love. But life has not 
+            been really kind to my younger self, as every bit of little innocence left in my younger version&apos;s 
+            body was forcefully stripped out by guiltless people who took advantage of my youth and 
+            naivety. These experiences had lasting effects on myself which I am still actively trying to 
+            heal from until now. But I believe that all of these experiences also made me who I am, as 
+            they taught me a lot of lessons that made me stronger and more resilient now that I am older. 
+            With that being said, <b>I may seem to be a reserved and quiet individual, but it just 
+            usually takes some time for me to truly warm up to people.</b> <br><br>
+            </p>
+
+        
+        </div>
+
+        <hr>
+
+        </div>
+
+    </section>
+
+
+    <!--Education Section: Contains educational background, accomplishments, and awards.-->
+    <section>
+
+        <div class="education-container">
+
+            <h1 class="white-text"> Education 🎓</h1>
+
+            <div class="triple-grid">
+
+                <div class="white-text">
+                    <!--COLLEGE-->
+                    <h2 class="center"><u> College </u></h2>
+                        <p>
+                        University of the East - Manila (2024 - Current Year) <br><br> 
+
+                        - UE Tan Yan Kee Foundation Inc. Scholar (2025) <br><br>
+
+                        - Exemplary Academic Performance Awardee (2025) <br><br>
+
+                        - Computer Students Society (COMSSO) AVP for Member Relations (2025)
+                        </p>
+
+                    </div>
+
+                    <!--SENIOR HIGH-->
+                    <div class="white-text">
+                        <h2 class="center"><u> Senior High School </u></h2>
+
+                        <p>
+                        St. Paul University at San Miguel (2022 - 2024) <br><br>
+
+                        - Graduate of Science, Technology, Engineering, and Mathematics (STEM) <br><br>
+
+                        - Academic Distinction Awardee (2024) <br><br>
+
+                        - Academic Excellence Awardee (2023) <br><br>
+
+                        - Silver Medal Awardee for Capstone "Innovation" Category
+                        </p>
+
+                    </div>
+
+                    <!--ELEMENTARY-->
+                    <div class="white-text">
+                        <h2 class="center"><u> Junior High School </u></h2>
+                        
+                        <p> 
+                        - Academic Excellence Awardee (With Honors) Grade 8 - 10 <br><br>
+                        - Deportment Awardee
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>            
+
+        </div>
+
+    </section>
+
+    <!--Hobbies and Interests Section: Contains information about my hobbies and interests.-->
+    <section>
+
+        <div class="hobbies-container">
+
+            <hr>
+
+            <h1 class="white-text">Hobbies and Interests 🎨</h>
+
+            <h2 class="white-text">Digital Art</h2>
+
+            <div class="digital-art-container">
+
+                <div>
+
+                    <img src="images\2026_ALYSA2.png" alt="Mark's Art 1" id="artwork">
+
+                </div>
+
+                <div>
+                     <img src="images\2026_Valentine.png" alt="Mark's Art" id="artwork">
+                    
+                </div>
+
+                <div>
+
+                    <img src="images\2025_BEABADOOBEEWARMFINAL.png" alt="Mark's Art" id="artwork">
+
+                </div>
+
+            </div>
+
+            <p class="justify white-text">Ever since I was a child, I was already interested and engulfed in the art of creating. I have tried different mediums, most notably: <b>Traditional Painting, Digital Art, Crochet, and Clay Sculpting.</b> However, what stuck most was digital art due to its allowance for freedom and its convenience.</p>    
+
+        <br> 
+        <h2 class="white-text">Photography</h2>
+            <div class="digital-art-container">
+
+                <div> <img src="images\museum.png" alt="Mark's Art" id="photography"></div>
+
+                <div> <img src="images\rainbow-flag.png" alt="Mark's Art" id="photography"></div>
+
+                <div> <img src="images\mark-standing.png" alt="Mark's Art" id="photography"></div>
+
+            </div>
+
+            <p class="justify white-text">I like taking photos as it captures memories that I can look back at, especially with my bad memory, I get to keep a piece of my life experiences along with me.</p> <br><br>
+
+            <hr>
+
+        </div>
+        
+    </section>
+    
+    <!--Skills Section: Consists of my current abilities and skills-->
+
+    <section>
+
+        <div class="skills-container">
+
+            <h1 class="white-text">Skills and Abilities 👌</h1>
+            <div> 
+                
+                <pre class="white-text"> 
+• Basic knowledge in Python 
+• Basic knowledge in Java 
+• Basic knowledge in HTML 
+• Basic knowledge in SQL  
+• Basic knowledge in C#  
+• Basic knowledge in CSS 
+• Multimedia Arts 
+• Detail-Oriented 
+• Problem Solver 
+
+                </pre> 
+
+            </div>
+
+        </div>
+    
+
+    </section>
+
+    <section>
+        <div class="audio-container">
+            <hr>
+            <h1>My Favorite Songs 🎵</h1>
+            
+            <div class="audio-track purple">
+                <img src="images\wolf-alice-visions-of-a-life.jpg">
+                <div class="music">
+                    <h2>Space and Time - Wolf Alice</h2>
+                    <audio controls>
+                        <source src="audios\space-and-time.mp3" type="audio/mp3">">
+                    </audio>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="audio-track blue">
+                <img src="images\oklou-choke-enough.jpg">
+                <div class="music">
+                    <h2>ict - Oklou</h2>
+                    <audio controls>
+                        <source src="audios\ict.mp3" type="audio/mp3">">
+                    </audio>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="audio-track dark-blue">
+                <img src="images\adele-30.jpg">
+                <div class="music">
+                    <h2>I Drink Wine - Adele</h2>
+                    <audio controls>
+                        <source src="audios\adele-i-drink-wine.mp3" type="audio/mp3">">
+                    </audio>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="audio-track red">
+                <img src="images\aurora-a-different-kind-of-human.jpg">
+                <div class="music">
+                    <h2>A Different Kind of Human - AURORA</h2>
+                    <audio controls>
+                        <source src="audios\aurora-a-different-kind-of-human.mp3" type="audio/mp3">">
+                    </audio>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="audio-track brown">
+                <img src="images\caroline-desire-i-want-to-turn-into-you.jpg">
+                <div class="music">
+                    <h2>Coma - Caroline Polachek</h2>
+                    <audio controls>
+                        <source src="audios\coma.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+            </div>
+
+        </div>
+
+        
+    </section>
+
+    <section>
+        <div class="favorite-movies">
+            <hr>
+            <h1>My Favorite Movies and Series 🎬</h2>
+
+            <div class="movie-scene">
+                <h2>The Hunger Games: Mockingjay Part 1</h2>
+                <video width="1280" height="720" controls>
+                <source src="videos/the-hunger-games-mockingjay.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <br>
+
+            <div class="movie-scene">
+                <h2>Fleabag</h2>
+                <video width="1280" height="720" controls>
+                <source src="videos/fleabag.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <br>
+
+            <div class="movie-scene">
+                <h2>Everything Everywhere All At Once</h2>
+                <video width="1280" height="720" controls>
+                <source src="videos/everything-everywhere-all-at-once.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <br>
+
+            <div class="movie-scene">
+                <h2>Cruella</h2>
+                <video width="1280" height="720" controls>
+                <source src="videos/cruella.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <br>
+
+            <div class="movie-scene">
+                <h2>POSE</h2>
+                <video width="1280" height="720" controls>
+                <source src="videos/pose.mp4" type="video/mp4">
+                </video>
+            </div>
+
+        </div>
+    </section>
+
+    <!--Thank You Section-->
+    <section>
+
+        <div class="hobbies-container"> 
+            <hr>
+            <h1 class="center white-text">Thank you for getting to know me! ❤️</h1>
+            <hr>
+        </div>
+
+    </section>
+
+    <!--Footer-->
+    <footer>
+        <blockquote class=" center white-text"> "Don't forget who you are even though you are hurt.
+        Like a bird in the night, your emotions deserves to be freed" - AURORA </blockquote>
+    </footer>
+        
+</div>
+
+</body>
+</html>
