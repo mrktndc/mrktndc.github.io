@@ -1,0 +1,345 @@
+body#index {
+    margin: 0px;
+    padding: 0px;
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(50, 6, 6, 0.8)), url("le-creuset-valentines.jpg");
+    background-size: 1920px 1080px;
+
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: black;
+}
+
+nav {
+    flex: 1;
+    text-align: right;
+}
+
+nav ul {
+    display: inline-block;
+    list-style-type: none;
+}
+
+nav ul li{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.logo img{
+    max-width: 200px;
+    max-height: 50px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+    color: #6d1010;
+}
+
+.text-overlay{
+    text-align: center;
+    color: #ffffff;
+    font-size: 70px;
+    font-family: sans-serif;
+    padding:50px;
+    margin: 70px;
+}
+
+.text-overlay div{
+    padding: 0px;
+    margin: 0px;
+}
+
+#sale-header{
+    position: relative;
+    transform: translate(0px, 0px);
+}
+
+#sale-description{
+    font-size: 40px;
+    position: relative;
+    transform: translate(0px, -70px);
+}
+
+.row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#index-btn{
+    font-size: 25px;
+    display: inline-block;
+    background: #a6131e;
+    color: white;
+    padding: 16px 42px;
+    border-radius: 44px;
+    margin: 30px 0px;
+    position: relative;
+    top: -100px;
+}
+
+/*CATEGORY.HTML*/
+body#category {
+    margin: 0px;
+    padding: 0px;
+    background: #FFFAF5;
+}
+
+.category-container{
+    margin: 55px;
+}
+
+.category-container h1{
+    color: #6d1010;
+    font-size: 70px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.col-4 {
+    flex: 0 0 25%;
+    max-width: 25%;
+    min-width: 250px;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+    padding: 20px 20px;
+    position: relative;
+}
+
+.col-4 img {
+    width: 100%;
+    height: auto;
+    border-radius: 44px;
+    border: solid #6d1010 4px;
+}
+
+.category-names{
+    font-size: 24px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #6d1010;
+    text-decoration: none;
+}
+
+.small-container{
+    margin: auto;
+    padding: 25px 25px;
+}
+
+/*GALLERY.HTML*/
+
+body#gallery {
+    margin: 0px;
+    padding: 0px;
+    background: #FFFAF5;
+}
+
+.gallery-container{
+    margin: 50px;
+}
+
+.col-3 {
+    flex: 30%;
+    min-width: 250px;
+    margin-bottom: 30px;
+    margin: 10px;
+    box-sizing: border-box;
+    padding: 20px 20px;
+    padding-bottom: 25px;
+    background-color: #e4e4e4;
+    border: solid #6d1010 1px;
+}
+
+.col-3 img{
+    width:100%;
+}
+
+.gallery-container h1{
+    color: #6d1010;
+    font-size: 70px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.gallery-details{
+    color:#000000;
+    font-size: 25px;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.old-price{
+    color: #797878;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 7px;
+    margin: 0px;
+}
+
+.new-price{
+    color: #6d1010;
+    font-size: 32px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px;
+    margin: 0px;
+}
+
+.gallery-small-container{
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+/*PRODUCT.HTML*/
+body#product {
+    margin: 0px;
+    padding: 0px;
+    background: #FFFAF5;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.small-img-group{
+    display: flex;
+    justify-content: space-between;
+}
+
+.small-img-col{
+    flex-basis: 24%;
+    cursor: pointer;
+}
+
+.small-img{
+    max-width: 160px;
+}
+
+.product-description{
+    margin-left: 50px;
+    text-align: justify;
+}
+
+.product-row{
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 40px;
+    margin: 50px;;
+}
+
+.product-description h3{
+    font-size: 20px;
+}
+
+.product-description h1{
+    font-size: 50px;
+}
+
+.prices {
+    display: flex;
+    gap: 10px;
+}
+
+.variants {
+    margin-top: 30px;
+    padding: 15px;
+    font-size: 15px;
+    border: solid 2px;
+    color: #6d1010;
+    background: none;
+    padding: 16px 42px;
+    margin: 30px 0px;
+    position: relative;
+}
+
+.description-paragraph {
+    text-align: justify;
+    font-size: 20px;
+}
+
+#add-to-cart-btn{
+    font-size: 25px;
+    background: #6d1010;
+    color: white;
+    padding: 19px 42px;
+    margin: 30px 0px;
+    position: relative;
+    top: 50px;
+}
+
+#buy-now-btn{
+    font-size: 25px;
+    border: solid 3px;
+    color: #6d1010;
+    padding: 16px 42px;
+    margin: 30px 0px;
+    position: relative;
+    top: 50px;
+}
+
+/*THANK-YOU.HTML*/
+body#thank-you {
+    margin: 0px;
+    padding: 0px;
+    background: #FFFAF5;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.thank-you-message{
+text-align: center;
+    color: #6d1010;
+    font-size: 40px;
+    font-family: sans-serif;
+    padding:100px;
+    margin: 150px;
+}
+
+.center {
+    text-align: center;
+}
+
+.thank-you-paragraph{
+    font-size: 30px;
+    position: relative;
+    top: -50px;
+}
+
+#browse-more-btn{
+    display: inline;
+    font-size: 25px;
+    border: solid 3px;
+    color: #6d1010;
+    padding: 16px 42px;
+    margin: 0px 0px;
+    position: relative;
+    top: 50px;
+}
+
+#show-cart-btn{
+    display: inline;
+    font-size: 25px;
+    background: #6d1010;
+    color: white;
+    padding: 19px 42px;
+    margin: 0px 0px;
+    position: relative;
+    top: 50px;
+}
+
+/*FOOTER*/
+footer{
+    background: rgb(22, 21, 21);
+    padding: 5px;
+    margin: 0px;
+}
+
+.footer-text{
+    color: white;
+    text-align: center;
+}
