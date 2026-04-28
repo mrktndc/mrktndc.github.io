@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CIP1101 – Lecture 2: HTML Structures</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 20px; color: #222; line-height: 1.6; }
+    h1 { background: #2c3e50; color: #fff; padding: 15px 20px; border-radius: 6px; }
+    h2 { background: #3498db; color: #fff; padding: 8px 15px; border-radius: 4px; margin-top: 40px; }
+    h3 { color: #2c3e50; border-left: 4px solid #3498db; padding-left: 10px; }
+    code, pre { background: #f4f4f4; border: 1px solid #ddd; border-radius: 4px; padding: 2px 6px; font-family: monospace; }
+    pre { display: block; padding: 12px; overflow-x: auto; white-space: pre-wrap; }
+    ul { margin: 8px 0 8px 20px; }
+    table { border-collapse: collapse; width: 100%; margin: 10px 0; }
+    th { background: #2c3e50; color: #fff; padding: 8px 12px; text-align: left; }
+    td { border: 1px solid #ccc; padding: 8px 12px; }
+    tr:nth-child(even) td { background: #f9f9f9; }
+    .note { background: #fff8e1; border-left: 4px solid #f39c12; padding: 10px 15px; margin: 12px 0; border-radius: 4px; }
+    .subtitle { color: #555; font-size: 1.1em; margin-top: -10px; margin-bottom: 30px; }
+  </style>
+</head>
+<body>
+
+<h1>CIP1101 – Integrative Programming and Technologies 1</h1>
+<p class="subtitle"><strong>Lecture 2: HTML Structures</strong></p>
+
+<!-- ============================================================ -->
+<h2>Before You Start Creating Websites</h2>
+<p>Ask yourself these questions:</p>
+<ul>
+  <li>What are the tools the professionals use?</li>
+  <li>What will my website look like?</li>
+  <li>What are the important files that I should have?</li>
+</ul>
+
+<h3>What Professionals Use</h3>
+<ul>
+  <li><strong>Computer</strong></li>
+  <li><strong>Text Editor</strong> – to write the code (e.g., Notepad++)</li>
+  <li><strong>Web Browser</strong> – to test the code (Chrome, Firefox, Edge, Safari, Brave)</li>
+  <li><strong>Graphic Editing Software</strong> – e.g., Gimp, Figma, Photoshop</li>
+  <li><strong>Version Control System</strong> – e.g., GitHub, GitLab</li>
+  <li><strong>FTP Program</strong> (optional) – e.g., Cyberduck, FileZilla</li>
+  <li><strong>Automation System</strong> – for repetitive tasks such as running tests</li>
+  <li><strong>Libraries &amp; Frameworks</strong></li>
+</ul>
+
+<h3>What Will My Website Look Like? – Web Design Principles</h3>
+<ul>
+  <li>Clearly define your site's purpose.</li>
+  <li>Consider your audience.</li>
+  <li>Decide what your site needs to be a success.</li>
+  <li>Study sites of similar purpose.</li>
+  <li>Storyboard your site before you construct it.</li>
+</ul>
+
+<h3>Important Files and Folders</h3>
+<p>The basic structure of your website folder should have at least:</p>
+<ul>
+  <li><code>index.html</code> – your homepage content goes here</li>
+  <li><code>images/</code> folder</li>
+  <li><code>styles/</code> folder</li>
+  <li><code>scripts/</code> folder</li>
+</ul>
+
+<!-- ============================================================ -->
+<h2>Timeline of HTML</h2>
+<table>
+  <tr><th>Year</th><th>Event</th></tr>
+  <tr><td>1991</td><td>HTML first published</td></tr>
+  <tr><td>1995</td><td>HTML 2.0</td></tr>
+  <tr><td>1997</td><td>HTML 3.2</td></tr>
+  <tr><td>1999</td><td>HTML 4.01</td></tr>
+  <tr><td>2000</td><td>XHTML 1.0 – stricter standards</td></tr>
+  <tr><td>2002</td><td>XHTML 2.0 – even stricter; abandoned in 2009</td></tr>
+  <tr><td>2012</td><td>HTML5 officially published (in development since earlier)</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2>What is HTML?</h2>
+<p><strong>HTML (Hypertext Markup Language)</strong> is not a programming language. It is a <em>markup language</em> that tells web browsers how to structure the web pages you visit.</p>
+
+<h3>What is HTML5?</h3>
+<ul>
+  <li>The newest version of HTML.</li>
+  <li>Incorporates all features from earlier versions, including XHTML.</li>
+  <li>Adds a diverse set of new tools for the web developer.</li>
+</ul>
+
+<h3>Goals of HTML5</h3>
+<ul>
+  <li>Support all existing web pages — no need to revise older websites.</li>
+  <li>Reduce the need for external plugins and scripts.</li>
+  <li>Improve the semantic definition of page elements.</li>
+  <li>Make web content rendering universal and device-independent.</li>
+  <li>Handle web document errors in a better, more consistent fashion.</li>
+</ul>
+
+<h3>New Elements in HTML5</h3>
+<table>
+  <tr><th>Element</th><th>Element</th><th>Element</th></tr>
+  <tr><td><code>&lt;article&gt;</code></td><td><code>&lt;figcaption&gt;</code></td><td><code>&lt;progress&gt;</code></td></tr>
+  <tr><td><code>&lt;aside&gt;</code></td><td><code>&lt;footer&gt;</code></td><td><code>&lt;section&gt;</code></td></tr>
+  <tr><td><code>&lt;audio&gt;</code></td><td><code>&lt;header&gt;</code></td><td><code>&lt;source&gt;</code></td></tr>
+  <tr><td><code>&lt;canvas&gt;</code></td><td><code>&lt;hgroup&gt;</code></td><td><code>&lt;svg&gt;</code></td></tr>
+  <tr><td><code>&lt;datalist&gt;</code></td><td><code>&lt;mark&gt;</code></td><td><code>&lt;time&gt;</code></td></tr>
+  <tr><td><code>&lt;figure&gt;</code></td><td><code>&lt;nav&gt;</code></td><td><code>&lt;video&gt;</code></td></tr>
+</table>
+
+<h3>Other New Features in HTML5</h3>
+<ul>
+  <li>Built-in audio and video support (without plugins)</li>
+  <li>Enhanced form controls and attributes</li>
+  <li>The Canvas – draw directly on a web page</li>
+  <li>Drag and Drop functionality</li>
+  <li>Support for CSS3</li>
+  <li>Advanced features: data storage and offline applications</li>
+</ul>
+
+<!-- ============================================================ -->
+<h2>First Look at HTML5 Structure</h2>
+
+<h3>DOCTYPE Declaration</h3>
+<pre><code>&lt;!DOCTYPE html&gt;</code></pre>
+<div class="note"><strong>Note:</strong> The DOCTYPE tells the browser which type and version of document to expect. This simplified declaration will be used for all future versions of HTML.</div>
+
+<h3>The &lt;html&gt; Element</h3>
+<pre><code>&lt;html lang="en"&gt;</code></pre>
+<div class="note"><strong>Note:</strong> The <code>lang</code> attribute declares the page language. Always specify it — it assists search engines and screen readers. E.g., Spanish = "es", French = "fr", German = "de".</div>
+
+<h3>The &lt;head&gt; Section</h3>
+<pre><code>&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;My First HTML5 Page&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;</code></pre>
+
+<h3>Basic HTML5 Web Page</h3>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;My First HTML5 Page&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;HTML5 is fun!&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h3>HTML Page Structure Explained</h3>
+<table>
+  <tr><th>Element</th><th>Purpose</th></tr>
+  <tr><td><code>&lt;!DOCTYPE html&gt;</code></td><td>Declares the document as HTML5</td></tr>
+  <tr><td><code>&lt;html&gt;&lt;/html&gt;</code></td><td>Root element — wraps all page content</td></tr>
+  <tr><td><code>&lt;head&gt;&lt;/head&gt;</code></td><td>Container for metadata not shown to viewers</td></tr>
+  <tr><td><code>&lt;meta charset="utf-8"&gt;</code></td><td>Specifies character set (supports most human languages)</td></tr>
+  <tr><td><code>&lt;title&gt;&lt;/title&gt;</code></td><td>Sets the browser tab title and bookmark label</td></tr>
+  <tr><td><code>&lt;body&gt;&lt;/body&gt;</code></td><td>Contains all visible content (text, images, videos, etc.)</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2>Four Key Concepts</h2>
+
+<h3>1. Elements</h3>
+<p>All HTML pages are made up of elements. An element acts as a container for a portion of a page.</p>
+<pre><code>&lt;h1&gt;Text Here&lt;/h1&gt;</code></pre>
+
+<h3>2. Tags</h3>
+<p>Tags are HTML codes enclosed in angle brackets used to format text. An element is made up of an opening tag and a closing tag.</p>
+<pre><code>&lt;p&gt;  &lt;!-- opening tag --&gt;
+&lt;/p&gt; &lt;!-- closing tag --&gt;</code></pre>
+<p><strong>Empty Elements</strong> – HTML elements with no content and no closing tag (e.g., <code>&lt;br&gt;</code> for a line break).</p>
+
+<h3>3. Attributes and Values</h3>
+<p>Attributes define the characteristics of an element and are placed inside the opening tag. Values describe the attribute.</p>
+<pre><code>&lt;p align="center"&gt;This is a paragraph&lt;/p&gt;</code></pre>
+<div class="note"><strong>Tip:</strong> Always enclose values in quotation marks.</div>
+
+<h3>4. Nesting</h3>
+<p>Nesting means placing elements inside other elements. Elements must <strong>never overlap</strong>.</p>
+<pre><code>&lt;!-- Incorrect --&gt;
+&lt;p align="center"&gt;&lt;h1&gt;Incorrect&lt;/p&gt;&lt;/h1&gt;
+
+&lt;!-- Correct --&gt;
+&lt;p align="center"&gt;&lt;h1&gt;Correct&lt;/h1&gt;&lt;/p&gt;</code></pre>
+
+<!-- ============================================================ -->
+<h2>Other Important Rules</h2>
+
+<h3>HTML Is Not Case Sensitive</h3>
+<p><code>&lt;P&gt;</code> and <code>&lt;p&gt;</code> mean the same thing. However, W3C recommends lowercase, and XHTML demands it.</p>
+
+<h3>Comments</h3>
+<pre><code>&lt;!-- Add your comment here --&gt;</code></pre>
+<p>Comments are not displayed in the browser (non-printing lines).</p>
+
+<!-- ============================================================ -->
+<h2>HTML5 Semantic Elements</h2>
+<p>Semantic elements clearly describe their meaning to both the browser and the developer.</p>
+<ul>
+  <li><strong>Non-semantic:</strong> <code>&lt;div&gt;</code>, <code>&lt;span&gt;</code> – say nothing about content</li>
+  <li><strong>Semantic:</strong> <code>&lt;form&gt;</code>, <code>&lt;table&gt;</code>, <code>&lt;article&gt;</code> – clearly define content</li>
+</ul>
+
+<h3>Key Semantic Elements</h3>
+<table>
+  <tr><th>Element</th><th>Purpose</th></tr>
+  <tr><td><code>&lt;section&gt;</code></td><td>A thematic grouping of content, typically with a heading</td></tr>
+  <tr><td><code>&lt;article&gt;</code></td><td>Independent, self-contained content (blog post, forum post, news article)</td></tr>
+  <tr><td><code>&lt;header&gt;</code></td><td>Introductory content for a document or section</td></tr>
+  <tr><td><code>&lt;footer&gt;</code></td><td>Footer info: author, copyright, contact links</td></tr>
+  <tr><td><code>&lt;nav&gt;</code></td><td>Major block of navigation links</td></tr>
+  <tr><td><code>&lt;aside&gt;</code></td><td>Content aside from main content (sidebar)</td></tr>
+  <tr><td><code>&lt;figure&gt;</code> / <code>&lt;figcaption&gt;</code></td><td>Groups an image with its caption</td></tr>
+  <tr><td><code>&lt;main&gt;</code>, <code>&lt;mark&gt;</code>, <code>&lt;time&gt;</code>, <code>&lt;summary&gt;</code>, <code>&lt;details&gt;</code></td><td>Other semantic helpers</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2>Removed Elements in HTML5</h2>
+<table>
+  <tr><th>Removed Element</th><th>Use Instead</th></tr>
+  <tr><td><code>&lt;acronym&gt;</code></td><td><code>&lt;abbr&gt;</code></td></tr>
+  <tr><td><code>&lt;applet&gt;</code></td><td><code>&lt;object&gt;</code></td></tr>
+  <tr><td><code>&lt;basefont&gt;</code></td><td>CSS</td></tr>
+  <tr><td><code>&lt;big&gt;</code></td><td>CSS</td></tr>
+  <tr><td><code>&lt;center&gt;</code></td><td>CSS</td></tr>
+  <tr><td><code>&lt;dir&gt;</code></td><td><code>&lt;ul&gt;</code></td></tr>
+  <tr><td><code>&lt;font&gt;</code></td><td>CSS</td></tr>
+  <tr><td><code>&lt;frame&gt;</code>, <code>&lt;frameset&gt;</code>, <code>&lt;noframes&gt;</code></td><td>(removed entirely)</td></tr>
+  <tr><td><code>&lt;strike&gt;</code></td><td>CSS, <code>&lt;s&gt;</code>, or <code>&lt;del&gt;</code></td></tr>
+  <tr><td><code>&lt;tt&gt;</code></td><td>CSS</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2>Controlling Text and Text Flow</h2>
+
+<h3>Headings</h3>
+<pre><code>&lt;h1&gt;Heading 1&lt;/h1&gt;  &lt;!-- largest --&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;
+&lt;h3&gt;Heading 3&lt;/h3&gt;
+&lt;h4&gt;Heading 4&lt;/h4&gt;
+&lt;h5&gt;Heading 5&lt;/h5&gt;
+&lt;h6&gt;Heading 6&lt;/h6&gt;  &lt;!-- smallest --&gt;</code></pre>
+
+<h3>Horizontal Rule</h3>
+<pre><code>&lt;hr&gt;</code></pre>
+<p>Draws a horizontal line to separate content.</p>
+
+<h3>Character / Text Elements</h3>
+<table>
+  <tr><th>Element</th><th>Type</th><th>Purpose</th></tr>
+  <tr><td><code>&lt;b&gt;</code></td><td>Physical</td><td>Bold text</td></tr>
+  <tr><td><code>&lt;strong&gt;</code></td><td>Logical</td><td>Strongly emphasized (also bold)</td></tr>
+  <tr><td><code>&lt;i&gt;</code></td><td>Physical</td><td>Italic text</td></tr>
+  <tr><td><code>&lt;em&gt;</code></td><td>Logical</td><td>Emphasized text</td></tr>
+  <tr><td><code>&lt;cite&gt;</code></td><td>Logical</td><td>Reference to an outside source</td></tr>
+  <tr><td><code>&lt;var&gt;</code></td><td>Logical</td><td>Variable (e.g., in code)</td></tr>
+  <tr><td><code>&lt;dfn&gt;</code></td><td>Logical</td><td>Defining instance of a term</td></tr>
+  <tr><td><code>&lt;address&gt;</code></td><td>Logical</td><td>Address / personal info</td></tr>
+  <tr><td><code>&lt;mark&gt;</code></td><td>—</td><td>Highlighted text</td></tr>
+  <tr><td><code>&lt;del&gt;</code></td><td>—</td><td>Deleted/removed text</td></tr>
+  <tr><td><code>&lt;u&gt;</code></td><td>Physical</td><td>Underlined text</td></tr>
+  <tr><td><code>&lt;ins&gt;</code></td><td>Logical</td><td>Inserted text</td></tr>
+  <tr><td><code>&lt;sup&gt;</code></td><td>—</td><td>Superscript</td></tr>
+  <tr><td><code>&lt;sub&gt;</code></td><td>—</td><td>Subscript</td></tr>
+  <tr><td><code>&lt;code&gt;</code></td><td>Logical</td><td>Computer code (monospaced)</td></tr>
+  <tr><td><code>&lt;kbd&gt;</code></td><td>Logical</td><td>Keyboard input</td></tr>
+  <tr><td><code>&lt;samp&gt;</code></td><td>Logical</td><td>Sample output (monospaced)</td></tr>
+</table>
+
+<h3>Line Breaks and Paragraphs</h3>
+<pre><code>&lt;br&gt;   &lt;!-- line break only --&gt;
+&lt;p&gt;    &lt;!-- new paragraph (adds blank line before) --&gt;</code></pre>
+
+<h3>Indentation and Spacing</h3>
+<ul>
+  <li>Use <code>&amp;nbsp;</code> (non-breaking space) to add spaces/indents.</li>
+  <li>Use <code>&lt;blockquote&gt;</code> to indent a large block from both left and right margins.</li>
+  <li>Use <code>&lt;pre&gt;&lt;/pre&gt;</code> to retain text formatting exactly as entered (displays in monospaced font).</li>
+</ul>
+
+<h3>Text Alignment</h3>
+<pre><code>&lt;p align="right"&gt;Right-aligned text&lt;/p&gt;
+&lt;p align="center"&gt;Centered text&lt;/p&gt;
+&lt;p align="justify"&gt;Justified text&lt;/p&gt;</code></pre>
+
+<!-- ============================================================ -->
+<h2>Common HTML Entities</h2>
+<table>
+  <tr><th>Result</th><th>Description</th><th>Entity Name</th></tr>
+  <tr><td>&nbsp;</td><td>Non-breaking space</td><td><code>&amp;nbsp;</code></td></tr>
+  <tr><td>&lt;</td><td>Less than</td><td><code>&amp;lt;</code></td></tr>
+  <tr><td>&gt;</td><td>Greater than</td><td><code>&amp;gt;</code></td></tr>
+  <tr><td>&amp;</td><td>Ampersand</td><td><code>&amp;amp;</code></td></tr>
+  <tr><td>"</td><td>Double quotation mark</td><td><code>&amp;quot;</code></td></tr>
+  <tr><td>'</td><td>Single quotation mark</td><td><code>&amp;apos;</code></td></tr>
+  <tr><td>©</td><td>Copyright</td><td><code>&amp;copy;</code></td></tr>
+  <tr><td>®</td><td>Registered trademark</td><td><code>&amp;reg;</code></td></tr>
+  <tr><td>/</td><td>Forward slash</td><td><code>&amp;#47;</code></td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2>Saving and Viewing Your Pages</h2>
+<ul>
+  <li>Save files with the <code>.html</code> (or <code>.htm</code>) extension.</li>
+  <li>Your web page will open with the icon of your default browser.</li>
+</ul>
+
+<!---->
+      <h1>Lecture Lab Hand-on Exercises</h1>
+        <h2>Monospace Text</h2>
+        
+        <p>This is a sample code:
+            <br> <code>print("Hello World!")</code>
+        </p> 
+
+        <p>Output: 
+           <br> <samp>Hello World!</samp>
+        </p>
+
+    <!--Underlined and Inserted Text-->
+        <h2>Underlined and Inserted Text</h2>
+
+        <p><u>This is an underlined sentence.</u></p>
+        <p><ins>This is an inserted text element.</ins></p>
+
+    <!--Indention using &nbsp;-->
+        <h2>Indention using &amp;nbsp;</h2>
+
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This paragraph starts with an indent.</p>
+
+    <!--HTML Entities-->
+        <h2>HTML Entities</h2>
+
+        <p>&amp;amp; = &amp</p>
+        <p>&amp;copy; = &copy</p>
+
+    <!--<blockquote for quoted content>-->
+        <h2>&lt;blockquote&gt; for quoted content</h2>
+
+        <blockquote style="text-align: justify">
+            "I hope my body gets better, do I mean my body or my mind? I hate the word forever, hate the word change I just need time. Give me time. Space and time!"
+        </blockquote>
+
+    <!--<div> for divisions-->
+        <h2>&lt;div&gt;</h2>
+
+        <div class="sampDiv">
+            <h4>This is a heading in a div element</h4>
+            <p>This is some text in a div element.</p>
+        </div>
+
+    <!--<pre></pre> for pre-formatted text-->
+        <h2>&lt;pre&gt;&lt;/pre&gt;</h2>
+
+        <pre>
+        
+                                "No Hard Feelings"
+                                    Wolf Alice
+        No hard feelings, honey
+        There'll be no bad blood
+        Losing your love has been hard enough
+        Life can be short, but life can be sweet
+        No hard feelings, honey
+        The next time we meet
+
+        It's not hard to remember
+        When it was tough to hear your name
+        Crying in the bathtub
+        To "Love Is A Losing Game"
+        But there's only so much sulking
+        That the heart can entertain
+        No hard feelings, honey
+        Next time you come my way
+
+        The threads that kept us together
+        Were already wearing thin
+        Would we ever have tied the knot?
+        Well, how long is a piece of string?
+        And for everything that ends
+        Something else must begin
+        No hard feelings, honey
+        And we both will take the win
+
+        </pre>
+
+<!-- ============================================================ -->
+<h2>References</h2>
+<ul>
+  <li>Jenkins, S. (2013). <em>Web Design All-in-One for Dummies.</em> John Wiley &amp; Sons.</li>
+  <li>Parker, J. (2021). <em>HTML for Beginners: A Complete Beginners Guide to Learn Html in 1 Hour and Master Your Web Designing.</em></li>
+  <li>W3Schools online web tutorials. <a href="https://www.w3schools.com/" target="_blank">https://www.w3schools.com/</a></li>
+</ul>
+
+</body>
+</html>

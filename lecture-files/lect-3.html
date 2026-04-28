@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CIP1101 – Lecture 3: Lists and Tables</title>
+  <link href="style (1).css" rel="stylesheet">
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 20px; color: #222; line-height: 1.6; }
+    h1 { background: #2c3e50; color: #fff; padding: 15px 20px; border-radius: 6px; }
+    h2 { background: #27ae60; color: #fff; padding: 8px 15px; border-radius: 4px; margin-top: 40px; }
+    h3 { color: #2c3e50; border-left: 4px solid #27ae60; padding-left: 10px; }
+    code, pre { background: #f4f4f4; border: 1px solid #ddd; border-radius: 4px; padding: 2px 6px; font-family: monospace; }
+    pre { display: block; padding: 12px; overflow-x: auto; white-space: pre-wrap; }
+    ul, ol { margin: 8px 0 8px 20px; }
+    table { border-collapse: collapse; width: 100%; margin: 10px 0; }
+    th { background: #2c3e50; color: #fff; padding: 8px 12px; text-align: left; }
+    td { border: 1px solid #ccc; padding: 8px 12px; }
+    tr:nth-child(even) td { background: #f9f9f9; }
+    .note { background: #e8f8e8; border-left: 4px solid #27ae60; padding: 10px 15px; margin: 12px 0; border-radius: 4px; }
+    .subtitle { color: #555; font-size: 1.1em; margin-top: -10px; margin-bottom: 30px; }
+  </style>
+</head>
+<body>
+<div class="none">
+<h1>CIP1101 – Integrative Programming and Technologies 1</h1>
+<p class="subtitle"><strong>Lecture 3: Lists and Tables</strong></p>
+
+<!-- ============================================================ -->
+<h2>HTML Styles (Inline)</h2>
+<p>The HTML <code>style</code> attribute is used to add styles such as color, font, and size directly to an element.</p>
+<pre><code>&lt;tagname style="property:value;"&gt;</code></pre>
+
+<h3>Background Color</h3>
+<pre><code>&lt;body style="background-color:DarkTurquoise;"&gt;
+&lt;h1 style="background-color:cyan;"&gt;This is a heading&lt;/h1&gt;
+&lt;p style="background-color:tomato;"&gt;This is a paragraph.&lt;/p&gt;</code></pre>
+
+<h3>Text Color</h3>
+<pre><code>&lt;h1 style="color:red;"&gt;This is a heading&lt;/h1&gt;
+&lt;p style="color:blue;"&gt;This is a paragraph.&lt;/p&gt;</code></pre>
+
+<h3>Fonts</h3>
+<pre><code>&lt;h1 style="font-family:verdana;"&gt;This is a heading&lt;/h1&gt;
+&lt;p style="font-family:courier;"&gt;This is a paragraph.&lt;/p&gt;</code></pre>
+
+<h3>Text Size</h3>
+<pre><code>&lt;h1 style="font-size:300%;"&gt;This is a heading&lt;/h1&gt;
+&lt;p style="font-size:30pt;"&gt;This is a paragraph.&lt;/p&gt;</code></pre>
+
+<h3>Text Alignment</h3>
+<pre><code>&lt;h1 style="text-align:center;"&gt;Centered Heading&lt;/h1&gt;
+&lt;p style="text-align:center;"&gt;Centered paragraph.&lt;/p&gt;</code></pre>
+
+<!-- ============================================================ -->
+<h2>HTML Lists</h2>
+<p>Lists display specific information quickly and clearly. HTML provides three main types of lists:</p>
+<ul>
+  <li><strong>Ordered list (<code>&lt;ol&gt;</code>)</strong> – numbered or sequential order</li>
+  <li><strong>Unordered list (<code>&lt;ul&gt;</code>)</strong> – bullet points</li>
+  <li><strong>Definition list (<code>&lt;dl&gt;</code>)</strong> – terms and their descriptions</li>
+</ul>
+
+<h3>Ordered List</h3>
+<p>Used when order matters (steps, instructions, procedures).</p>
+<pre><code>&lt;ol&gt;
+  &lt;li&gt;Notebook&lt;/li&gt;
+  &lt;li&gt;Ballpen&lt;/li&gt;
+  &lt;li&gt;Yellow Paper&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+<p><strong>list-style-type values for ordered lists:</strong></p>
+<table>
+  <tr><th>Value</th><th>Description</th></tr>
+  <tr><td><code>decimal</code></td><td>Numbers (default)</td></tr>
+  <tr><td><code>upper-alpha</code></td><td>Uppercase letters (A, B, C…)</td></tr>
+  <tr><td><code>lower-alpha</code></td><td>Lowercase letters (a, b, c…)</td></tr>
+  <tr><td><code>upper-roman</code></td><td>Uppercase Roman numerals (I, II, III…)</td></tr>
+  <tr><td><code>lower-roman</code></td><td>Lowercase Roman numerals (i, ii, iii…)</td></tr>
+</table>
+
+<p><strong>start and value attributes:</strong></p>
+<pre><code>&lt;!-- Start numbering from letter E (5th letter) --&gt;
+&lt;ol type="A" start="5"&gt;
+  &lt;li&gt;Item&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- Using start and value together --&gt;
+&lt;ol class="loweralpha-list" start="2"&gt;
+  &lt;li&gt;Notebook&lt;/li&gt;
+  &lt;li value="5"&gt;Ballpen&lt;/li&gt;
+  &lt;li&gt;Yellow Paper&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+<h3>Unordered List</h3>
+<pre><code>&lt;ul&gt;
+  &lt;li&gt;Notebook&lt;/li&gt;
+  &lt;li&gt;Ballpen&lt;/li&gt;
+  &lt;li&gt;Yellow Paper&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+<p><strong>list-style-type values for unordered lists:</strong></p>
+<table>
+  <tr><th>Value</th><th>Description</th></tr>
+  <tr><td><code>disc</code></td><td>Filled circle bullet (default)</td></tr>
+  <tr><td><code>circle</code></td><td>Hollow circle</td></tr>
+  <tr><td><code>square</code></td><td>Filled square</td></tr>
+  <tr><td><code>none</code></td><td>No marker</td></tr>
+</table>
+
+<h3>Description List</h3>
+<p>Uses <code>&lt;dl&gt;</code> (list), <code>&lt;dt&gt;</code> (term), and <code>&lt;dd&gt;</code> (description).</p>
+<pre><code>&lt;dl&gt;
+  &lt;dt&gt;Notebook&lt;/dt&gt;
+  &lt;dd&gt;- a small book with blank or ruled pages for writing notes in.&lt;/dd&gt;
+  &lt;dt&gt;Ballpen&lt;/dt&gt;
+  &lt;dd&gt;- a pen that dispenses ink over a metal ball at its point&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+
+<h3>Nested List</h3>
+<pre><code>&lt;ul&gt;
+  &lt;li&gt;Notebook&lt;/li&gt;
+  &lt;li&gt;Pen
+    &lt;ul&gt;
+      &lt;li&gt;Sign pen&lt;/li&gt;
+      &lt;li&gt;Ball point pen&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Yellow Pad&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+<!-- ============================================================ -->
+<h2>HTML Tables</h2>
+<p>Tables should be used for <strong>tabular data</strong>, not for page layout. Styling should be handled using CSS.</p>
+
+<h3>Core Table Tags</h3>
+<table>
+  <tr><th>Tag</th><th>Purpose</th></tr>
+  <tr><td><code>&lt;table&gt;</code></td><td>Defines the table</td></tr>
+  <tr><td><code>&lt;thead&gt;</code></td><td>Table header section</td></tr>
+  <tr><td><code>&lt;tbody&gt;</code></td><td>Table body section</td></tr>
+  <tr><td><code>&lt;tfoot&gt;</code></td><td>Table footer section</td></tr>
+  <tr><td><code>&lt;tr&gt;</code></td><td>Creates a table row</td></tr>
+  <tr><td><code>&lt;th&gt;</code></td><td>Table header cell (bold, centered; important for accessibility)</td></tr>
+  <tr><td><code>&lt;td&gt;</code></td><td>Table data cell</td></tr>
+</table>
+
+<h3>Basic Table Example</h3>
+<pre><code>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+      &lt;th&gt;Email&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Allen Ramirez&lt;/td&gt;
+      &lt;td&gt;ramirez.allen@email.com&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+
+<h3>Adding Borders</h3>
+<pre><code>table, th, td {
+  border: 1px solid black;
+}</code></pre>
+
+<h3>Collapsed Borders</h3>
+<pre><code>table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse; /* merges double borders into one */
+}</code></pre>
+
+<h3>Cell Padding</h3>
+<pre><code>th, td {
+  padding: 15px;
+}</code></pre>
+
+<h3>Text Alignment in Cells</h3>
+<pre><code>/* Horizontal alignment */
+td { text-align: center; }  /* left | center | right | justify */
+
+/* Vertical alignment */
+th, td { vertical-align: top; }  /* top | middle (default) | bottom */</code></pre>
+
+<h3>Border Spacing</h3>
+<pre><code>table {
+  border-spacing: 5px;
+}
+/* Note: has no effect when border-collapse is set */</code></pre>
+
+<h3>Column Spanning (colspan)</h3>
+<p>Makes a cell span more than one column.</p>
+<pre><code>&lt;table style="width:100%"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Company Name&lt;/th&gt;
+    &lt;th colspan="2"&gt;Telephone&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;The Travel Club&lt;/td&gt;
+    &lt;td&gt;(02) 332-7183&lt;/td&gt;
+    &lt;td&gt;(02) 815-7418&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+<h3>Row Spanning (rowspan)</h3>
+<p>Makes a cell span more than one row.</p>
+<pre><code>&lt;table style="width:100%"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Company Name:&lt;/th&gt;
+    &lt;td&gt;The Travel Club&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;th rowspan="2"&gt;Telephone:&lt;/th&gt;
+    &lt;td&gt;(02) 332-7183&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;(02) 815-7418&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+</div>
+<!---->
+<div id="example">
+<h1 style="text-align: center">Lecture 2 Hands-On Exercises</h1>
+
+	<hr>
+
+    <!--Monospace Text-->
+        <h1>Monospace Text</h1>
+        
+        <p>This is a sample code:
+            <br> <code>print("Hello World!")</code>
+        </p> 
+
+        <p>Output: 
+           <br> <samp>Hello World!</samp>
+        </p>
+
+    <!--Underlined and Inserted Text-->
+        <h1>Underlined and Inserted Text</h1>
+
+        <p><u>This is an underlined sentence.</u></p>
+        <p><ins>This is an inserted text element.</ins></p>
+
+    <!--Indention using &nbsp;-->
+        <h1>Indention using &amp;nbsp;</h1>
+
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This paragraph starts with an indent.</p>
+
+    <!--HTML Entities-->
+        <h1>HTML Entities</h1>
+
+        <p>&amp;amp; = &amp</p>
+        <p>&amp;copy; = &copy</p>
+
+    <!--<blockquote for quoted content>-->
+        <h1>&lt;blockquote&gt; for quoted content</h1>
+
+        <blockquote style="text-align: justify">
+            "I hope my body gets better, do I mean my body or my mind? I hate the word forever, hate the word change I just need time. Give me time. Space and time!"
+        </blockquote>
+
+    <!--<div> for divisions-->
+        <h1>&lt;div&gt;</h1>
+
+        <div class="sampDiv">
+            <h2>This is a heading in a div element</h2>
+            <p>This is some text in a div element.</p>
+        </div>
+
+    <!--<pre></pre> for pre-formatted text-->
+        <h1>&lt;pre&gt;&lt;/pre&gt;</h1>
+
+        <pre>
+        
+                                "No Hard Feelings"
+                                    Wolf Alice
+        No hard feelings, honey
+        There'll be no bad blood
+        Losing your love has been hard enough
+        Life can be short, but life can be sweet
+        No hard feelings, honey
+        The next time we meet
+
+        It's not hard to remember
+        When it was tough to hear your name
+        Crying in the bathtub
+        To "Love Is A Losing Game"
+        But there's only so much sulking
+        That the heart can entertain
+        No hard feelings, honey
+        Next time you come my way
+
+        The threads that kept us together
+        Were already wearing thin
+        Would we ever have tied the knot?
+        Well, how long is a piece of string?
+        And for everything that ends
+        Something else must begin
+        No hard feelings, honey
+        And we both will take the win
+
+        </pre>
+	
+	<hr>
+
+    <!--Lecture 3 Start-->
+	
+	<h1 style="text-align: center">Lecture 3 Hands-On Exercises</h1>
+
+	<hr>
+
+	<h1> ID Selector </h1>
+	
+		<p id="para1"> This paragraph is styled using an ID selector.</p>
+
+	<h1> Class Selector </h1>
+
+		<p class="center"> This paragraph is styled using a class selector. </p>
+		<h2 class="center"> This heading is also styled using the same class. </h2>
+
+	<h1> Multiple Selector </h1>
+
+		<h3> This is a heading styled using multiple selectors. </h3>
+		<h4> This is a heading 4 styled using multiple selectors. </h4>
+		<p> This is a paragraph styled using multiple selectors. </p>
+
+	<h1> Inline CSS </h1>	
+
+		<h1 style="background-color:CornFlowerBlue;"> Hello World </h1>
+		<h1 style=rgb(255,255,255)"> Hello World </h1>
+		<h1 style="border:2px solid DarkOrchid;"> Hello World </h1>
+</div>
+<!-- ============================================================ -->
+<h2>References</h2>
+<ul>
+  <li>Jenkins, S. (2013). <em>Web Design All-in-One for Dummies.</em> John Wiley &amp; Sons.</li>
+  <li>Parker, J. (2021). <em>HTML for Beginners.</em></li>
+  <li>W3Schools online web tutorials. <a href="https://www.w3schools.com/" target="_blank">https://www.w3schools.com/</a></li>
+  <li>Sklar, J. (2012). <em>Web Design Principles.</em></li>
+  <li>Castro, E., &amp; Hyslop, B. (2013). <em>HTML and CSS: Visual QuickStart Guide.</em> Peachpit Press.</li>
+</ul>
+
+</body>
+</html>
