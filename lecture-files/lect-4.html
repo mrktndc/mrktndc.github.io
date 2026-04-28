@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>CIP1101 – Lecture 4: Links, Images, Audio and Videos</title>
+  <title>CIP1101 – Lecture 4: List, Links, Images, Audio and Videos</title>
   <style>
     body { font-family: Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 20px; color: #222; line-height: 1.6; }
     h1 { background: #2c3e50; color: #fff; padding: 15px 20px; border-radius: 6px; }
@@ -22,8 +22,86 @@
 <body>
 
 <h1>CIP1101 – Integrative Programming and Technologies 1</h1>
-<p class="subtitle"><strong>Lecture 4: Links, Images, Audio and Videos</strong></p>
+<p class="subtitle"><strong>Lecture 4: List, Links, Images, Audio and Videos</strong></p>
 
+<!-- ============================================================ -->
+<h2>HTML Lists</h2>
+<p>Lists display specific information quickly and clearly. HTML provides three main types of lists:</p>
+<ul>
+  <li><strong>Ordered list (<code>&lt;ol&gt;</code>)</strong> – numbered or sequential order</li>
+  <li><strong>Unordered list (<code>&lt;ul&gt;</code>)</strong> – bullet points</li>
+  <li><strong>Definition list (<code>&lt;dl&gt;</code>)</strong> – terms and their descriptions</li>
+</ul>
+
+<h3>Ordered List</h3>
+<p>Used when order matters (steps, instructions, procedures).</p>
+<pre><code>&lt;ol&gt;
+  &lt;li&gt;Notebook&lt;/li&gt;
+  &lt;li&gt;Ballpen&lt;/li&gt;
+  &lt;li&gt;Yellow Paper&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+<p><strong>list-style-type values for ordered lists:</strong></p>
+<table>
+  <tr><th>Value</th><th>Description</th></tr>
+  <tr><td><code>decimal</code></td><td>Numbers (default)</td></tr>
+  <tr><td><code>upper-alpha</code></td><td>Uppercase letters (A, B, C…)</td></tr>
+  <tr><td><code>lower-alpha</code></td><td>Lowercase letters (a, b, c…)</td></tr>
+  <tr><td><code>upper-roman</code></td><td>Uppercase Roman numerals (I, II, III…)</td></tr>
+  <tr><td><code>lower-roman</code></td><td>Lowercase Roman numerals (i, ii, iii…)</td></tr>
+</table>
+
+<p><strong>start and value attributes:</strong></p>
+<pre><code>&lt;!-- Start numbering from letter E (5th letter) --&gt;
+&lt;ol type="A" start="5"&gt;
+  &lt;li&gt;Item&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- Using start and value together --&gt;
+&lt;ol class="loweralpha-list" start="2"&gt;
+  &lt;li&gt;Notebook&lt;/li&gt;
+  &lt;li value="5"&gt;Ballpen&lt;/li&gt;
+  &lt;li&gt;Yellow Paper&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+<h3>Unordered List</h3>
+<pre><code>&lt;ul&gt;
+  &lt;li&gt;Notebook&lt;/li&gt;
+  &lt;li&gt;Ballpen&lt;/li&gt;
+  &lt;li&gt;Yellow Paper&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+<p><strong>list-style-type values for unordered lists:</strong></p>
+<table>
+  <tr><th>Value</th><th>Description</th></tr>
+  <tr><td><code>disc</code></td><td>Filled circle bullet (default)</td></tr>
+  <tr><td><code>circle</code></td><td>Hollow circle</td></tr>
+  <tr><td><code>square</code></td><td>Filled square</td></tr>
+  <tr><td><code>none</code></td><td>No marker</td></tr>
+</table>
+
+<h3>Description List</h3>
+<p>Uses <code>&lt;dl&gt;</code> (list), <code>&lt;dt&gt;</code> (term), and <code>&lt;dd&gt;</code> (description).</p>
+<pre><code>&lt;dl&gt;
+  &lt;dt&gt;Notebook&lt;/dt&gt;
+  &lt;dd&gt;- a small book with blank or ruled pages for writing notes in.&lt;/dd&gt;
+  &lt;dt&gt;Ballpen&lt;/dt&gt;
+  &lt;dd&gt;- a pen that dispenses ink over a metal ball at its point&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+
+<h3>Nested List</h3>
+<pre><code>&lt;ul&gt;
+  &lt;li&gt;Notebook&lt;/li&gt;
+  &lt;li&gt;Pen
+    &lt;ul&gt;
+      &lt;li&gt;Sign pen&lt;/li&gt;
+      &lt;li&gt;Ball point pen&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Yellow Pad&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+  
 <!-- ============================================================ -->
 <h2>Links / Hyperlinks</h2>
 <p>Links allow users to jump from one page to another. They can appear as highlighted/underlined text or as a graphic image.</p>
