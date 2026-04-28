@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CIP1101 – Lecture 5: CSS3</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 20px; color: #222; line-height: 1.6; }
+    h1 { background: #2c3e50; color: #fff; padding: 15px 20px; border-radius: 6px; }
+    h2 { background: #c0392b; color: #fff; padding: 8px 15px; border-radius: 4px; margin-top: 40px; }
+    h3 { color: #2c3e50; border-left: 4px solid #c0392b; padding-left: 10px; }
+    code, pre { background: #f4f4f4; border: 1px solid #ddd; border-radius: 4px; padding: 2px 6px; font-family: monospace; }
+    pre { display: block; padding: 12px; overflow-x: auto; white-space: pre-wrap; }
+    ul, ol { margin: 8px 0 8px 20px; }
+    table { border-collapse: collapse; width: 100%; margin: 10px 0; }
+    th { background: #2c3e50; color: #fff; padding: 8px 12px; text-align: left; }
+    td { border: 1px solid #ccc; padding: 8px 12px; }
+    tr:nth-child(even) td { background: #f9f9f9; }
+    .note { background: #fdecea; border-left: 4px solid #c0392b; padding: 10px 15px; margin: 12px 0; border-radius: 4px; }
+    .subtitle { color: #555; font-size: 1.1em; margin-top: -10px; margin-bottom: 30px; }
+
+    /* Live border demos */
+    .demo-dotted  { border-style: dotted; padding: 5px; margin: 4px 0; }
+    .demo-dashed  { border-style: dashed; padding: 5px; margin: 4px 0; }
+    .demo-solid   { border-style: solid;  padding: 5px; margin: 4px 0; }
+    .demo-double  { border-style: double; padding: 5px; margin: 4px 0; }
+    .demo-groove  { border-style: groove; padding: 5px; margin: 4px 0; }
+    .demo-ridge   { border-style: ridge;  padding: 5px; margin: 4px 0; }
+    .demo-inset   { border-style: inset;  padding: 5px; margin: 4px 0; }
+    .demo-outset  { border-style: outset; padding: 5px; margin: 4px 0; }
+  </style>
+</head>
+<body>
+
+<h1>CIP1101 – Integrative Programming and Technologies 1</h1>
+<p class="subtitle"><strong>Lecture 5: CSS3</strong></p>
+
+<!-- ============================================================ -->
+<h2>Introduction to CSS3</h2>
+<p>The principles of CSS have roots in Standardized Generalized Markup Language (SGML), developed in the 1980s.</p>
+
+<h3>Main Goals of CSS</h3>
+<ul>
+  <li>Create a consistent look and feel across multiple web pages.</li>
+  <li>Separate structure from presentation — HTML handles content, CSS controls appearance.</li>
+  <li>Support different style sheets for different outputs (screen, print, other media).</li>
+</ul>
+
+<h3>CSS Version Timeline</h3>
+<table>
+  <tr><th>Version</th><th>Year</th><th>Notes</th></tr>
+  <tr><td>CSS1</td><td>December 1996</td><td>First W3C Recommendation</td></tr>
+  <tr><td>CSS2</td><td>May 1998</td><td>Published by W3C</td></tr>
+  <tr><td>CSS3</td><td>Ongoing</td><td>Modular approach — each feature (layouts, colors, animations) published as a separate module</td></tr>
+</table>
+
+<h3>Why CSS Was Needed (The Problem It Solved)</h3>
+<p>HTML was never intended to handle formatting. When <code>&lt;font&gt;</code> and color attributes were introduced in HTML 3.2, problems emerged:</p>
+<ul>
+  <li>Formatting tags mixed with content</li>
+  <li>Fonts and colors had to be repeated on every page</li>
+  <li>Updating large websites was time-consuming and expensive</li>
+  <li>Code became messy and difficult to maintain</li>
+</ul>
+<p><strong>CSS solved this by:</strong> removing styling from HTML, defining design rules in one place, enabling consistent styling, and making websites easier to maintain.</p>
+
+<!-- ============================================================ -->
+<h2>CSS Syntax and Selectors</h2>
+<p>A CSS rule-set consists of a <strong>selector</strong> and a <strong>declaration block</strong>.</p>
+<pre><code>selector { property: value; property2: value2; }</code></pre>
+<ul>
+  <li><strong>Selector</strong> – points to the HTML element to style</li>
+  <li><strong>Declaration block</strong> – contains one or more declarations in <code>{ }</code></li>
+  <li><strong>Declaration</strong> – a property-value pair separated by a colon, ending with a semicolon</li>
+</ul>
+
+<h3>Element Selector</h3>
+<p>Selects all elements of a given type.</p>
+<pre><code>p {
+  text-align: center;
+  color: red;
+}</code></pre>
+
+<h3>ID Selector</h3>
+<p>Uses <code>#</code> to target one unique element. An ID can be used only once per page.</p>
+<pre><code>&lt;!-- HTML --&gt;
+&lt;p id="para1"&gt;This paragraph is styled using an ID selector.&lt;/p&gt;
+
+/* CSS */
+#para1 {
+  text-align: center;
+  color: blue;
+}</code></pre>
+<div class="note"><strong>Note:</strong> ID selectors have higher priority than class and element selectors. Use them for unique elements (headers, main sections).</div>
+
+<h3>Class Selector</h3>
+<p>Uses <code>.</code> to target all elements sharing a class. A class can be used multiple times; one element can have multiple classes.</p>
+<pre><code>&lt;!-- HTML --&gt;
+&lt;p class="center"&gt;This paragraph uses a class selector.&lt;/p&gt;
+&lt;h2 class="center"&gt;This heading uses the same class.&lt;/h2&gt;
+
+/* CSS */
+.center {
+  text-align: center;
+  color: red;
+}</code></pre>
+
+<h3>Grouping Selectors</h3>
+<p>Apply the same styles to multiple selectors at once using commas.</p>
+<pre><code>h1, h2, p {
+  text-align: center;
+  color: red;
+}</code></pre>
+
+<h3>CSS Comments</h3>
+<pre><code>p {
+  color: red;
+  /* This is a single-line comment */
+  text-align: center;
+}
+
+/* This is
+   a multi-line
+   comment */</code></pre>
+
+<!-- ============================================================ -->
+<h2>Three Ways to Insert CSS</h2>
+
+<h3>1. External Style Sheet</h3>
+<p>Change the look of an entire website by editing one file. Linked in the <code>&lt;head&gt;</code> section.</p>
+<pre><code>&lt;head&gt;
+  &lt;link rel="stylesheet" type="text/css" href="mystyle.css"&gt;
+&lt;/head&gt;</code></pre>
+<pre><code>/* mystyle.css */
+body { background-color: lightblue; }
+h1   { color: navy; margin-left: 20px; }</code></pre>
+
+<h3>2. Internal Style Sheet</h3>
+<p>Used when a single page has a unique style. Defined inside <code>&lt;style&gt;</code> in the <code>&lt;head&gt;</code>.</p>
+<pre><code>&lt;head&gt;
+  &lt;style&gt;
+    body { background-color: linen; }
+    h1   { color: maroon; margin-left: 40px; }
+  &lt;/style&gt;
+&lt;/head&gt;</code></pre>
+
+<h3>3. Inline Styles</h3>
+<p>Apply a unique style to a single element using the <code>style</code> attribute.</p>
+<pre><code>&lt;h1 style="color:blue;margin-left:30px;"&gt;This is a heading&lt;/h1&gt;</code></pre>
+
+<h3>Cascading Order (Highest to Lowest Priority)</h3>
+<ol>
+  <li>Inline style (element's <code>style</code> attribute)</li>
+  <li>Internal <code>&lt;style&gt;</code> in the page's <code>&lt;head&gt;</code></li>
+  <li>External style sheet file</li>
+  <li>User-defined browser settings</li>
+  <li>Browser's native default settings</li>
+</ol>
+
+<!-- ============================================================ -->
+<h2>CSS Colors</h2>
+
+<h3>Applying Color</h3>
+<pre><code>&lt;!-- Background color --&gt;
+&lt;h1 style="background-color:DodgerBlue;"&gt;Hello World&lt;/h1&gt;
+
+&lt;!-- Text color --&gt;
+&lt;h1 style="color:Tomato;"&gt;Hello World&lt;/h1&gt;
+
+&lt;!-- Border color --&gt;
+&lt;h1 style="border:2px solid DodgerBlue;"&gt;Hello World&lt;/h1&gt;</code></pre>
+
+<h3>Color Value Formats</h3>
+<table>
+  <tr><th>Format</th><th>Syntax</th><th>Example</th></tr>
+  <tr><td>Color name</td><td><code>colorname</code></td><td><code>red</code></td></tr>
+  <tr><td>HEX</td><td><code>#rrggbb</code></td><td><code>#ff0000</code></td></tr>
+  <tr><td>RGB</td><td><code>rgb(r, g, b)</code></td><td><code>rgb(255, 0, 0)</code></td></tr>
+  <tr><td>RGBA</td><td><code>rgba(r, g, b, alpha)</code></td><td><code>rgba(255, 0, 0, 0.5)</code> — 50% transparent red</td></tr>
+  <tr><td>HSL</td><td><code>hsl(h, s%, l%)</code></td><td><code>hsl(0, 100%, 50%)</code></td></tr>
+  <tr><td>HSLA</td><td><code>hsla(h, s%, l%, alpha)</code></td><td><code>hsla(0, 100%, 50%, 0.5)</code></td></tr>
+</table>
+
+<h3>RGB Details</h3>
+<ul>
+  <li>Each channel (red, green, blue): 0–255 (integer), 0%–100% (percentage), or 00–ff (hex).</li>
+  <li>Alpha (RGBA): 0 = fully transparent, 1 = fully opaque.</li>
+</ul>
+
+<h3>HSL Details</h3>
+<ul>
+  <li><strong>Hue:</strong> 0–360 on the color wheel (0 = red, 120 = green, 240 = blue).</li>
+  <li><strong>Saturation:</strong> 0% = gray, 100% = full color.</li>
+  <li><strong>Lightness:</strong> 0% = black, 50% = full color, 100% = white.</li>
+</ul>
+
+<!-- ============================================================ -->
+<h2>CSS Backgrounds</h2>
+
+<h3>Background Properties</h3>
+<table>
+  <tr><th>Property</th><th>Purpose</th></tr>
+  <tr><td><code>background-color</code></td><td>Sets the background color</td></tr>
+  <tr><td><code>background-image</code></td><td>Sets a background image</td></tr>
+  <tr><td><code>background-repeat</code></td><td>Controls image repetition (repeat, no-repeat, repeat-x, repeat-y)</td></tr>
+  <tr><td><code>background-attachment</code></td><td>Whether the image scrolls or is fixed (<code>fixed</code> / <code>scroll</code>)</td></tr>
+  <tr><td><code>background-position</code></td><td>Sets the starting position of the image</td></tr>
+</table>
+
+<pre><code>body {
+  background-image: url("img_tree.png");
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-attachment: fixed;
+}</code></pre>
+
+<h3>Background Shorthand</h3>
+<pre><code>body {
+  background: #ffffff url("img_tree.png") no-repeat right top;
+}</code></pre>
+
+<!-- ============================================================ -->
+<h2>CSS Borders</h2>
+
+<h3>border-style Values</h3>
+<table>
+  <tr><th>Value</th><th>Appearance</th></tr>
+  <tr><td><code>dotted</code></td><td><span class="demo-dotted">dotted border</span></td></tr>
+  <tr><td><code>dashed</code></td><td><span class="demo-dashed">dashed border</span></td></tr>
+  <tr><td><code>solid</code></td><td><span class="demo-solid">solid border</span></td></tr>
+  <tr><td><code>double</code></td><td><span class="demo-double">double border</span></td></tr>
+  <tr><td><code>groove</code></td><td><span class="demo-groove">groove border</span></td></tr>
+  <tr><td><code>ridge</code></td><td><span class="demo-ridge">ridge border</span></td></tr>
+  <tr><td><code>inset</code></td><td><span class="demo-inset">inset border</span></td></tr>
+  <tr><td><code>outset</code></td><td><span class="demo-outset">outset border</span></td></tr>
+  <tr><td><code>none</code></td><td>No border</td></tr>
+  <tr><td><code>hidden</code></td><td>Hidden border</td></tr>
+</table>
+
+<h3>Border Width</h3>
+<p>Can be set in <code>px</code>, <code>pt</code>, <code>em</code>, or using keywords <code>thin</code>, <code>medium</code>, <code>thick</code>. Accepts 1–4 values (top, right, bottom, left).</p>
+
+<h3>Border Color</h3>
+<p>Set by color name, hex value, or RGB. Also accepts 1–4 values for each side.</p>
+
+<h3>Individual Sides</h3>
+<pre><code>p {
+  border-top-style: dotted;
+  border-right-style: solid;
+  border-bottom-style: dotted;
+  border-left-style: solid;
+}</code></pre>
+
+<h3>Border Shorthand</h3>
+<pre><code>p { border: 5px solid red; }
+
+/* Specific sides */
+p { border-left: 6px solid red; background-color: lightgrey; }
+p { border-bottom: 6px solid red; background-color: lightgrey; }</code></pre>
+
+<h3>Rounded Borders</h3>
+<pre><code>p {
+  border: 2px solid red;
+  border-radius: 5px;
+}</code></pre>
+
+<!-- ============================================================ -->
+<h2>CSS Height and Width</h2>
+<p>The <code>height</code> and <code>width</code> properties set the dimensions of an element. Values can be:</p>
+<ul>
+  <li><code>auto</code> (default — browser calculates)</li>
+  <li>A fixed length in <code>px</code>, <code>cm</code>, <code>em</code>, etc.</li>
+  <li>A percentage <code>%</code> of the containing block</li>
+</ul>
+
+<h3>max-width</h3>
+<p>Limits the maximum width of an element. Useful for responsive layouts.</p>
+<pre><code>div {
+  max-width: 600px;
+  margin: auto; /* centers the element */
+}</code></pre>
+
+<!-- ============================================================ -->
+<h2>References</h2>
+<ul>
+  <li>Carey, P. (2018). <em>New Perspectives on HTML5, CSS3, and JavaScript.</em> Cengage Learning.</li>
+  <li>Jenkins, S. (2013). <em>Web Design All-in-One for Dummies.</em> John Wiley &amp; Sons.</li>
+  <li>Parker, J. (2021). <em>HTML for Beginners.</em></li>
+  <li>W3Schools online web tutorials. <a href="https://www.w3schools.com/" target="_blank">https://www.w3schools.com/</a></li>
+  <li>Sklar, J. (2012). <em>Web Design Principles.</em></li>
+  <li>Castro, E., &amp; Hyslop, B. (2013). <em>HTML and CSS: Visual QuickStart Guide.</em> Peachpit Press.</li>
+</ul>
+
+</body>
+</html>

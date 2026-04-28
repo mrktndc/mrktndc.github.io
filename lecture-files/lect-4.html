@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CIP1101 – Lecture 4: Links, Images, Audio and Videos</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 20px; color: #222; line-height: 1.6; }
+    h1 { background: #2c3e50; color: #fff; padding: 15px 20px; border-radius: 6px; }
+    h2 { background: #8e44ad; color: #fff; padding: 8px 15px; border-radius: 4px; margin-top: 40px; }
+    h3 { color: #2c3e50; border-left: 4px solid #8e44ad; padding-left: 10px; }
+    code, pre { background: #f4f4f4; border: 1px solid #ddd; border-radius: 4px; padding: 2px 6px; font-family: monospace; }
+    pre { display: block; padding: 12px; overflow-x: auto; white-space: pre-wrap; }
+    ul, ol { margin: 8px 0 8px 20px; }
+    table { border-collapse: collapse; width: 100%; margin: 10px 0; }
+    th { background: #2c3e50; color: #fff; padding: 8px 12px; text-align: left; }
+    td { border: 1px solid #ccc; padding: 8px 12px; }
+    tr:nth-child(even) td { background: #f9f9f9; }
+    .note { background: #f3e8ff; border-left: 4px solid #8e44ad; padding: 10px 15px; margin: 12px 0; border-radius: 4px; }
+    .subtitle { color: #555; font-size: 1.1em; margin-top: -10px; margin-bottom: 30px; }
+  </style>
+</head>
+<body>
+
+<h1>CIP1101 – Integrative Programming and Technologies 1</h1>
+<p class="subtitle"><strong>Lecture 4: Links, Images, Audio and Videos</strong></p>
+
+<!-- ============================================================ -->
+<h2>Links / Hyperlinks</h2>
+<p>Links allow users to jump from one page to another. They can appear as highlighted/underlined text or as a graphic image.</p>
+
+<h3>The &lt;a&gt; Tag</h3>
+<p><code>&lt;a&gt;</code> stands for <strong>anchor</strong>. The <code>href</code> attribute (Hypertext Reference) specifies the URL or file the link points to.</p>
+<pre><code>&lt;a href="home.html"&gt;Back to HOME&lt;/a&gt;</code></pre>
+
+<h3>Absolute vs. Relative Links</h3>
+<table>
+  <tr><th>Type</th><th>Where It Goes</th></tr>
+  <tr><td>Absolute URL</td><td>A resource on a <strong>different</strong> web server (full URL required)</td></tr>
+  <tr><td>Relative URL</td><td>A resource on the <strong>same</strong> web server, using a path from the current page</td></tr>
+  <tr><td>Jump within page</td><td>A resource within the current page, using an element's <code>id</code></td></tr>
+</table>
+
+<pre><code>&lt;!-- Absolute link --&gt;
+&lt;a href="http://google.com"&gt;Google&lt;/a&gt;
+
+&lt;!-- Relative link --&gt;
+&lt;a href="template.htm"&gt;Template&lt;/a&gt;</code></pre>
+
+<h3>Relative URL Rules</h3>
+<ul>
+  <li>Use <code>/</code> to separate directories and files.</li>
+  <li>Use <code>..</code> to go up to the parent directory.</li>
+</ul>
+<pre><code>&lt;a href="../index.html"&gt;Olivia's Home Page&lt;/a&gt;
+&lt;a href="hw1/business.html"&gt;Business Page&lt;/a&gt;</code></pre>
+
+<h3>Website Structure Types (UX Design)</h3>
+<table>
+  <tr><th>Structure</th><th>Description</th></tr>
+  <tr><td><strong>Linear</strong></td><td>Each page links to the next in a sequence. Good for long articles.</td></tr>
+  <tr><td><strong>Hierarchical</strong></td><td>Home page links to several sub-pages acting as section hubs.</td></tr>
+  <tr><td><strong>Mixed</strong></td><td>Hierarchical structure with extra cross-links between sections and back to the home page.</td></tr>
+</table>
+
+<h3>HTML Link Colors (Default)</h3>
+<ul>
+  <li><strong>Unvisited:</strong> underlined and blue</li>
+  <li><strong>Visited:</strong> underlined and purple</li>
+  <li><strong>Active (clicked):</strong> underlined and red</li>
+</ul>
+
+<h3>CSS Link States</h3>
+<pre><code>a:link    { color: blue; }    /* unvisited */
+a:visited { color: purple; }  /* visited */
+a:hover   { color: orange; }  /* mouse over */
+a:active  { color: red; }     /* being clicked */</code></pre>
+
+<h3>The target Attribute</h3>
+<table>
+  <tr><th>Value</th><th>Behavior</th></tr>
+  <tr><td><code>_blank</code></td><td>Opens in a new window or tab</td></tr>
+  <tr><td><code>_self</code></td><td>Opens in the same tab (default)</td></tr>
+  <tr><td><code>_parent</code></td><td>Opens in the parent frame</td></tr>
+  <tr><td><code>_top</code></td><td>Opens in the full body of the window</td></tr>
+  <tr><td><code>framename</code></td><td>Opens in a named frame</td></tr>
+</table>
+
+<pre><code>&lt;a href="https://www.w3schools.com/" target="_blank"&gt;Visit W3Schools!&lt;/a&gt;</code></pre>
+
+<h3>Image as a Link</h3>
+<pre><code>&lt;a href="template.htm"&gt;
+  &lt;img src="Rudolph.jpg" alt="rudolph" style="width:42px;height:42px;border:0;"&gt;
+&lt;/a&gt;</code></pre>
+
+<!-- ============================================================ -->
+<h2>Images</h2>
+
+<h3>Image Formats Comparison</h3>
+<table>
+  <tr><th>Format</th><th>Pronunciation</th><th>Best Used For</th><th>Key Features</th></tr>
+  <tr>
+    <td><strong>GIF</strong></td><td>"jiff"</td>
+    <td>Navigation buttons, clip art, banners, solid-color images</td>
+    <td>Max 256 colors; lossless compression; supports transparency, interlacing, animation</td>
+  </tr>
+  <tr>
+    <td><strong>JPEG</strong></td><td>"jay-peg"</td>
+    <td>Photographs and photo-realistic images</td>
+    <td>Tens of thousands of colors; lossy compression; not ideal for illustrations</td>
+  </tr>
+  <tr>
+    <td><strong>PNG</strong></td><td>"ping"</td>
+    <td>Images needing transparency and high quality</td>
+    <td>24-bit true color; lossless; alpha channels; no animation support</td>
+  </tr>
+  <tr>
+    <td><strong>WebP</strong></td><td>"web-pee"</td>
+    <td>Modern web images replacing JPEG/GIF/PNG</td>
+    <td>Lossy &amp; lossless; supports transparency; ~30% better than PNG</td>
+  </tr>
+  <tr>
+    <td><strong>AVIF</strong></td><td>"AY-viff"</td>
+    <td>Next-gen web images</td>
+    <td>&gt;50% smaller than JPEG; HDR; transparency; animation; royalty-free</td>
+  </tr>
+</table>
+
+<h3>GIF Details</h3>
+<ul>
+  <li>Maximum 256 colors; uses lossless compression.</li>
+  <li><strong>Transparent GIF:</strong> browser ignores designated background color pixels, letting the page background show through.</li>
+  <li><strong>Interlaced GIF:</strong> displays every 4th row first, giving a fuzzy preview while the rest loads.</li>
+  <li><strong>Animated GIF:</strong> a single GIF89a file containing a series of images displayed in sequence.</li>
+</ul>
+
+<h3>PNG Details</h3>
+<ul>
+  <li>Supports 24-bit true-color RGB, grayscale, and 8-bit palette.</li>
+  <li>Alpha channels (65,000+ transparency levels), gamma correction, 2D interlacing.</li>
+  <li>Does <strong>not</strong> support animation.</li>
+</ul>
+
+<h3>HTML Image Syntax</h3>
+<p>Images use the self-closing <code>&lt;img&gt;</code> tag with no closing tag.</p>
+<pre><code>&lt;img src="url" alt="description"&gt;</code></pre>
+
+<h3>The alt Attribute</h3>
+<p>Provides alternate text when the image cannot be displayed (slow connection, broken link, screen readers).</p>
+<pre><code>&lt;img src="grizzly.png" alt="grizzly"&gt;
+&lt;img src="panda.png" alt="panda"&gt;</code></pre>
+
+<h3>Image Size</h3>
+<pre><code>&lt;img src="panda.png" alt="Panda Bear" style="width:500px;height:600px;"&gt;</code></pre>
+
+<h3>Images in a Subfolder</h3>
+<pre><code>&lt;img src="images/circle.jpg" alt="Circle" style="width:128px;height:128px;"&gt;</code></pre>
+
+<h3>Images from Another Server</h3>
+<pre><code>&lt;img src="https://www.ue.edu.ph/manila/main/misc/ccss.png" alt="UE-CCSS"&gt;</code></pre>
+
+<h3>Image as a Link</h3>
+<pre><code>&lt;a href="template.html"&gt;
+  &lt;img src="panda.png" alt="Lect1" style="width:42px;height:42px;border:0;"&gt;
+&lt;/a&gt;</code></pre>
+
+<h3>Image Floating</h3>
+<pre><code>&lt;!-- Float image to the right --&gt;
+&lt;p&gt;&lt;img src="polar.png" alt="Ice bear" style="float:right;width:42px;height:42px;"&gt;
+The image will float to the right of the text.&lt;/p&gt;
+
+&lt;!-- Float image to the left --&gt;
+&lt;p&gt;&lt;img src="grizzly.png" alt="Grizzly" style="float:left;width:42px;height:42px;"&gt;
+The image will float to the left of the text.&lt;/p&gt;</code></pre>
+
+<h3>Background Image</h3>
+<pre><code>&lt;body style="background-image:url('clouds.jpg')"&gt;
+  &lt;h2&gt;Background Image&lt;/h2&gt;
+&lt;/body&gt;</code></pre>
+
+<!-- ============================================================ -->
+<h2>Image Maps</h2>
+<p>An image map defines clickable "hot spot" areas within a single image, each linking to different destinations.</p>
+
+<h3>Key Attributes</h3>
+<table>
+  <tr><th>Attribute</th><th>Purpose</th></tr>
+  <tr><td><code>usemap</code></td><td>Added to <code>&lt;img&gt;</code> to associate it with a <code>&lt;map&gt;</code></td></tr>
+  <tr><td><code>name</code></td><td>Identifies the map (must match the <code>usemap</code> value)</td></tr>
+  <tr><td><code>shape</code></td><td>Shape of the area: <code>rect</code>, <code>circle</code>, <code>poly</code>, <code>default</code></td></tr>
+  <tr><td><code>coords</code></td><td>Coordinates defining the shape (relative to top-left corner = 0,0)</td></tr>
+  <tr><td><code>href</code></td><td>URL the hot spot links to</td></tr>
+  <tr><td><code>target</code></td><td>Where to open the link</td></tr>
+  <tr><td><code>title</code></td><td>Tooltip text shown on hover</td></tr>
+  <tr><td><code>alt</code></td><td>Alternate text for accessibility</td></tr>
+</table>
+
+<h3>Coordinate Format by Shape</h3>
+<table>
+  <tr><th>Shape</th><th>coords format</th></tr>
+  <tr><td><code>rect</code></td><td><code>x1,y1,x2,y2</code> — top-left and bottom-right corners</td></tr>
+  <tr><td><code>circle</code></td><td><code>x,y,r</code> — center and radius</td></tr>
+  <tr><td><code>poly</code></td><td><code>x1,y1,x2,y2,x3,y3,…</code> — polygon corners</td></tr>
+</table>
+
+<h3>Image Map Syntax</h3>
+<pre><code>&lt;img src="image.jpg" usemap="#mymap" alt="Map image"&gt;
+
+&lt;map name="mymap"&gt;
+  &lt;area shape="rect" coords="0,0,100,100" href="page1.html" title="Area 1" alt="Area 1"&gt;
+  &lt;area shape="circle" coords="200,150,50" href="page2.html" title="Area 2" alt="Area 2"&gt;
+  &lt;area shape="default" href="default.html" alt="Default area"&gt;
+&lt;/map&gt;</code></pre>
+
+<!---->
+<h1>Lecture Hands-On Exercise</h1>
+<ul>
+<li><a href="">Lecture Hands-On Exercise</a></li>
+</ul>
+<!-- ============================================================ -->
+<h2>References</h2>
+<ul>
+  <li>Jenkins, S. (2013). <em>Web Design All-in-One for Dummies.</em> John Wiley &amp; Sons.</li>
+  <li>Parker, J. (2021). <em>HTML for Beginners.</em></li>
+  <li>W3Schools online web tutorials. <a href="https://www.w3schools.com/" target="_blank">https://www.w3schools.com/</a></li>
+  <li>Sklar, J. (2012). <em>Web Design Principles.</em></li>
+  <li>Castro, E., &amp; Hyslop, B. (2013). <em>HTML and CSS: Visual QuickStart Guide.</em> Peachpit Press.</li>
+</ul>
+
+</body>
+</html>
