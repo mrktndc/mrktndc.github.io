@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CIP1101 – Lecture 7: Bootstrap</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 20px; color: #222; line-height: 1.6; }
+    h1 { background: #2c3e50; color: #fff; padding: 15px 20px; border-radius: 6px; }
+    h2 { background: #d35400; color: #fff; padding: 8px 15px; border-radius: 4px; margin-top: 40px; }
+    h3 { color: #2c3e50; border-left: 4px solid #d35400; padding-left: 10px; }
+    code, pre { background: #f4f4f4; border: 1px solid #ddd; border-radius: 4px; padding: 2px 6px; font-family: monospace; }
+    pre { display: block; padding: 12px; overflow-x: auto; white-space: pre-wrap; }
+    ul, ol { margin: 8px 0 8px 20px; }
+    table { border-collapse: collapse; width: 100%; margin: 10px 0; }
+    th { background: #2c3e50; color: #fff; padding: 8px 12px; text-align: left; }
+    td { border: 1px solid #ccc; padding: 8px 12px; }
+    tr:nth-child(even) td { background: #f9f9f9; }
+    .note { background: #fef5ec; border-left: 4px solid #d35400; padding: 10px 15px; margin: 12px 0; border-radius: 4px; }
+    .subtitle { color: #555; font-size: 1.1em; margin-top: -10px; margin-bottom: 30px; }
+
+    /* Bootstrap color swatches for visual reference */
+    .swatch { display: inline-block; padding: 3px 10px; border-radius: 3px; margin: 2px; font-size: 0.85em; color: #fff; }
+    .bg-p  { background:#0d6efd; }
+    .bg-s  { background:#198754; }
+    .bg-i  { background:#0dcaf0; color:#000; }
+    .bg-w  { background:#ffc107; color:#000; }
+    .bg-d  { background:#dc3545; }
+    .bg-se { background:#6c757d; }
+    .bg-dk { background:#212529; }
+    .bg-lt { background:#f8f9fa; color:#000; border:1px solid #ddd; }
+  </style>
+</head>
+<body>
+
+<h1>CIP1101 – Integrative Programming and Technologies 1</h1>
+<p class="subtitle"><strong>Lecture 7: Bootstrap</strong></p>
+
+<!-- ============================================================ -->
+<h2>Responsive Web Design</h2>
+<p>Responsive web design creates websites that automatically adjust to look good on all devices — from small phones to large desktops. Bootstrap is the most popular HTML, CSS, and JavaScript framework for building responsive, mobile-first websites. It is completely free to download and use.</p>
+
+<!-- ============================================================ -->
+<h2>What is Bootstrap?</h2>
+<p>Bootstrap is a web design framework that makes it easy to build responsive websites quickly and effectively. It was created by web developers Mark Otto and Jacob Thornton at Twitter to help build their website. It was released as an open-source framework in August 2011 on GitHub and has since become one of the most popular frameworks on the web.</p>
+
+<h3>Why Use Bootstrap?</h3>
+<table>
+  <tr><th>Advantage</th><th>Description</th></tr>
+  <tr><td><strong>Mobile-first</strong></td><td>Mobile-first styles are built throughout the entire library (since Bootstrap 3)</td></tr>
+  <tr><td><strong>Browser support</strong></td><td>Supported by all popular browsers</td></tr>
+  <tr><td><strong>Easy to start</strong></td><td>Only requires knowledge of HTML and CSS; excellent official documentation</td></tr>
+  <tr><td><strong>Responsive design</strong></td><td>Responsive CSS automatically adjusts to desktops, tablets, and mobiles</td></tr>
+  <tr><td><strong>Clean UI</strong></td><td>Clean, uniform solution with beautiful, functional, customizable built-in components</td></tr>
+  <tr><td><strong>Open source</strong></td><td>Free to use, modify, and distribute</td></tr>
+</table>
+
+<h3>What Bootstrap Package Includes</h3>
+<ul>
+  <li><strong>Scaffolding:</strong> Basic structure with Grid System, link styles, and backgrounds.</li>
+  <li><strong>CSS:</strong> Global CSS settings, styled HTML elements, extensible classes, and an advanced grid system.</li>
+  <li><strong>Components:</strong> Over a dozen reusable components — iconography, dropdowns, navigation, alerts, popovers, and more.</li>
+  <li><strong>JavaScript Plugins:</strong> Over a dozen custom jQuery plugins, usable individually or all at once.</li>
+  <li><strong>Customization:</strong> Customize Bootstrap's components and jQuery plugins for your own version.</li>
+</ul>
+
+<h3>Bootstrap vs. Custom CSS — When to Choose</h3>
+<table>
+  <tr><th>Use Bootstrap when…</th><th>Write your own CSS when…</th></tr>
+  <tr><td>Time is limited</td><td>You have a reasonable deadline for front-end work</td></tr>
+  <tr><td>The design fits Bootstrap's patterns</td><td>The design doesn't fit Bootstrap</td></tr>
+  <tr><td>You control the final HTML</td><td>You're working with a CMS that modifies HTML</td></tr>
+  <tr><td>You need many of Bootstrap's design patterns</td><td>You only need one or two Bootstrap features</td></tr>
+  <tr><td>You have limited cross-browser CSS experience</td><td>You're experienced in writing cross-browser CSS/HTML</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2>Environment Setup</h2>
+
+<h3>Option 1: Download Bootstrap</h3>
+<pre><code>https://getbootstrap.com/</code></pre>
+
+<h3>Option 2: Use a CDN (Content Delivery Network)</h3>
+<p>A CDN is a system of distributed servers that delivers content based on the user's geographic location. You can include Bootstrap directly from a CDN without downloading anything.</p>
+<pre><code>&lt;!-- Add to the &lt;head&gt; section --&gt;
+&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+
+&lt;!-- Add before &lt;/body&gt; or in &lt;head&gt; --&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;</code></pre>
+
+<!-- ============================================================ -->
+<h2>Creating Your First Bootstrap Page</h2>
+
+<h3>Step 1: Add HTML5 Doctype</h3>
+<p>Bootstrap requires HTML5 elements and CSS properties.</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;...&lt;/html&gt;</code></pre>
+
+<h3>Step 2: Add the Viewport Meta Tag (Mobile-first)</h3>
+<p>Ensures proper rendering and touch zooming on mobile devices.</p>
+<pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"&gt;</code></pre>
+
+<h3>Complete Bootstrap 5 Starter Template</h3>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;title&gt;Bootstrap 5 Example&lt;/title&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+  &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div class="container-fluid p-5 bg-primary text-white text-center"&gt;
+    &lt;h1&gt;My First Bootstrap Page&lt;/h1&gt;
+    &lt;p&gt;Resize this responsive page to see the effect!&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class="container mt-5"&gt;
+    &lt;div class="row"&gt;
+      &lt;div class="col-sm-4"&gt;
+        &lt;h3&gt;Column 1&lt;/h3&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="col-sm-4"&gt;
+        &lt;h3&gt;Column 2&lt;/h3&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="col-sm-4"&gt;
+        &lt;h3&gt;Column 3&lt;/h3&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<!-- ============================================================ -->
+<h2>Bootstrap Layout: Containers</h2>
+<p>Containers pad content inside them. Two main container classes are available:</p>
+
+<table>
+  <tr><th>Class</th><th>Behavior</th></tr>
+  <tr><td><code>.container</code></td><td>Responsive fixed-width container. Max-width changes at different breakpoints.</td></tr>
+  <tr><td><code>.container-fluid</code></td><td>Full-width container. Always spans the entire viewport (100% width).</td></tr>
+</table>
+
+<h3>Container Breakpoints (.container)</h3>
+<table>
+  <tr><th>Breakpoint</th><th>Screen Width</th><th>max-width</th></tr>
+  <tr><td>Extra small</td><td>&lt; 576px</td><td>100%</td></tr>
+  <tr><td>Small</td><td>≥ 576px</td><td>540px</td></tr>
+  <tr><td>Medium</td><td>≥ 768px</td><td>720px</td></tr>
+  <tr><td>Large</td><td>≥ 992px</td><td>960px</td></tr>
+  <tr><td>Extra large</td><td>≥ 1200px</td><td>1140px</td></tr>
+</table>
+
+<h3>Container Examples</h3>
+<pre><code>&lt;!-- Fixed container --&gt;
+&lt;div class="container"&gt;
+  &lt;h1&gt;My First Bootstrap Page&lt;/h1&gt;
+&lt;/div&gt;
+
+&lt;!-- Fluid container --&gt;
+&lt;div class="container-fluid"&gt;
+  &lt;h1&gt;Full-Width Container&lt;/h1&gt;
+&lt;/div&gt;
+
+&lt;!-- Container with padding, margin, border, and color --&gt;
+&lt;div class="container p-3 my-3 border"&gt;Border container&lt;/div&gt;
+&lt;div class="container p-3 my-3 bg-dark text-white"&gt;Dark container&lt;/div&gt;
+&lt;div class="container p-3 my-3 bg-primary text-white"&gt;Primary container&lt;/div&gt;</code></pre>
+
+<div class="note"><strong>Note:</strong> Containers have default 15px left and right padding with no top/bottom padding. Use spacing utilities like <code>.pt-3</code> (top padding 16px) to add more spacing.</div>
+
+<!-- ============================================================ -->
+<h2>Bootstrap Grid System</h2>
+<p>Bootstrap's grid is built with <strong>flexbox</strong> and allows up to <strong>12 columns</strong> across the page. Columns can be grouped to create wider columns.</p>
+
+<h3>Grid Classes</h3>
+<table>
+  <tr><th>Class</th><th>Device</th><th>Screen Width</th></tr>
+  <tr><td><code>.col-</code></td><td>Extra small</td><td>&lt; 576px</td></tr>
+  <tr><td><code>.col-sm-</code></td><td>Small</td><td>≥ 576px</td></tr>
+  <tr><td><code>.col-md-</code></td><td>Medium</td><td>≥ 768px</td></tr>
+  <tr><td><code>.col-lg-</code></td><td>Large</td><td>≥ 992px</td></tr>
+  <tr><td><code>.col-xl-</code></td><td>Extra large</td><td>≥ 1200px</td></tr>
+</table>
+
+<h3>Grid Structure and Examples</h3>
+<pre><code>&lt;!-- Three equal auto columns --&gt;
+&lt;div class="row"&gt;
+  &lt;div class="col"&gt;.col&lt;/div&gt;
+  &lt;div class="col"&gt;.col&lt;/div&gt;
+  &lt;div class="col"&gt;.col&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Four responsive equal columns (stack on mobile &lt;576px) --&gt;
+&lt;div class="row"&gt;
+  &lt;div class="col-sm-3"&gt;.col-sm-3&lt;/div&gt;
+  &lt;div class="col-sm-3"&gt;.col-sm-3&lt;/div&gt;
+  &lt;div class="col-sm-3"&gt;.col-sm-3&lt;/div&gt;
+  &lt;div class="col-sm-3"&gt;.col-sm-3&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Two unequal responsive columns --&gt;
+&lt;div class="row"&gt;
+  &lt;div class="col-sm-4"&gt;.col-sm-4&lt;/div&gt;
+  &lt;div class="col-sm-8"&gt;.col-sm-8&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Manual column widths --&gt;
+&lt;div class="row"&gt;
+  &lt;div class="col-md-6"&gt;&lt;/div&gt;
+  &lt;div class="col-md-6"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<div class="note"><strong>Key rule:</strong> Column numbers in a row should add up to 12. On screens narrower than the breakpoint, columns stack vertically.</div>
+
+<!-- ============================================================ -->
+<h2>Bootstrap Colors</h2>
+
+<h3>Text Color Classes</h3>
+<p>Use these classes to add semantic color meaning to text:</p>
+<p>
+  <span class="swatch bg-p">.text-primary</span>
+  <span class="swatch bg-s">.text-success</span>
+  <span class="swatch bg-i">.text-info</span>
+  <span class="swatch bg-w">.text-warning</span>
+  <span class="swatch bg-d">.text-danger</span>
+  <span class="swatch bg-se">.text-secondary</span>
+  <span class="swatch bg-dk">.text-dark</span>
+  <span class="swatch bg-lt">.text-light</span>
+</p>
+
+<pre><code>&lt;p class="text-primary"&gt;Primary text&lt;/p&gt;
+&lt;p class="text-success"&gt;Success text&lt;/p&gt;
+&lt;p class="text-danger"&gt;Danger text&lt;/p&gt;
+&lt;p class="text-muted"&gt;Muted text&lt;/p&gt;
+&lt;p class="text-white bg-dark"&gt;White text on dark background&lt;/p&gt;
+
+&lt;!-- 50% opacity --&gt;
+&lt;p class="text-black-50"&gt;Black text at 50% opacity&lt;/p&gt;
+&lt;p class="text-white-50 bg-dark"&gt;White text at 50% opacity&lt;/p&gt;
+
+&lt;!-- Contextual link colors --&gt;
+&lt;a href="#" class="text-success"&gt;Success link&lt;/a&gt;</code></pre>
+
+<h3>Background Color Classes</h3>
+<p>Background classes do <strong>not</strong> set text color — combine with a <code>.text-*</code> class when needed.</p>
+<pre><code>&lt;div class="bg-primary text-white"&gt;Primary background&lt;/div&gt;
+&lt;div class="bg-success text-white"&gt;Success background&lt;/div&gt;
+&lt;div class="bg-info text-dark"&gt;Info background&lt;/div&gt;
+&lt;div class="bg-warning text-dark"&gt;Warning background&lt;/div&gt;
+&lt;div class="bg-danger text-white"&gt;Danger background&lt;/div&gt;
+&lt;div class="bg-secondary text-white"&gt;Secondary background&lt;/div&gt;
+&lt;div class="bg-dark text-white"&gt;Dark background&lt;/div&gt;
+&lt;div class="bg-light text-dark"&gt;Light background&lt;/div&gt;</code></pre>
+
+<!-- ============================================================ -->
+<h2>Bootstrap 5 Version History</h2>
+<table>
+  <tr><th>Release</th><th>Date</th></tr>
+  <tr><td>Bootstrap 5 (stable)</td><td>May 5, 2021</td></tr>
+  <tr><td>Bootstrap 5 Beta 3</td><td>March 22, 2021</td></tr>
+  <tr><td>Bootstrap 5 Beta 2</td><td>February 10, 2021</td></tr>
+  <tr><td>Bootstrap 5 Beta 1</td><td>December 7, 2020</td></tr>
+  <tr><td>Bootstrap 5 Alpha 3</td><td>November 11, 2020</td></tr>
+  <tr><td>Bootstrap 5 Alpha 1</td><td>June 16, 2020</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2>References</h2>
+<ul>
+  <li>Carey, P. (2018). <em>New Perspectives on HTML5, CSS3, and JavaScript.</em> Cengage Learning.</li>
+  <li>Jenkins, S. (2013). <em>Web Design All-in-One for Dummies.</em> John Wiley &amp; Sons.</li>
+  <li>W3Schools online web tutorials. <a href="https://www.w3schools.com/" target="_blank">https://www.w3schools.com/</a></li>
+  <li>Sklar, J. (2012). <em>Web Design Principles.</em></li>
+  <li>Plumley, G. (2011). <em>Website Design and Development.</em> Wiley Pub.</li>
+  <li>Bootstrap Documentation. <a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/" target="_blank">https://getbootstrap.com/docs/5.0/</a></li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CIP1101 – Lecture 6: Forms and Multimedia</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 20px; color: #222; line-height: 1.6; }
+    h1 { background: #2c3e50; color: #fff; padding: 15px 20px; border-radius: 6px; }
+    h2 { background: #16a085; color: #fff; padding: 8px 15px; border-radius: 4px; margin-top: 40px; }
+    h3 { color: #2c3e50; border-left: 4px solid #16a085; padding-left: 10px; }
+    code, pre { background: #f4f4f4; border: 1px solid #ddd; border-radius: 4px; padding: 2px 6px; font-family: monospace; }
+    pre { display: block; padding: 12px; overflow-x: auto; white-space: pre-wrap; }
+    ul, ol { margin: 8px 0 8px 20px; }
+    table { border-collapse: collapse; width: 100%; margin: 10px 0; }
+    th { background: #2c3e50; color: #fff; padding: 8px 12px; text-align: left; }
+    td { border: 1px solid #ccc; padding: 8px 12px; }
+    tr:nth-child(even) td { background: #f9f9f9; }
+    .note { background: #e8f8f5; border-left: 4px solid #16a085; padding: 10px 15px; margin: 12px 0; border-radius: 4px; }
+    .subtitle { color: #555; font-size: 1.1em; margin-top: -10px; margin-bottom: 30px; }
+  </style>
+</head>
+<body>
+
+<h1>CIP1101 – Integrative Programming and Technologies 1</h1>
+<p class="subtitle"><strong>Lecture 6: Forms and Multimedia Elements</strong></p>
+
+<!-- ============================================================ -->
+<h2>Web Forms</h2>
+<p>Web forms are interactive elements that allow users to input data (text, choices, selections) and submit it for processing.</p>
+
+<h3>Form Controls and Widgets</h3>
+<p><strong>Controls</strong> are objects that allow user interaction:</p>
+<ul>
+  <li>Input boxes – for text strings and numeric values</li>
+  <li>Radio buttons – select one value from a small predefined set</li>
+  <li>Selection lists – select from a more extensive list</li>
+  <li>Check boxes – select values limited to two possibilities (yes/no)</li>
+  <li>Text area boxes – for multi-line text content</li>
+</ul>
+<p><strong>Widgets</strong> (HTML5 additions):</p>
+<ul>
+  <li>Spin boxes – integer values within a range</li>
+  <li>Slider controls – numeric values within a range</li>
+  <li>Calendar controls – date and time selection</li>
+  <li>Color pickers – choose color values</li>
+</ul>
+
+<!-- ============================================================ -->
+<h2>The &lt;form&gt; Tag</h2>
+<p>All form elements are placed inside the <code>&lt;form&gt;&lt;/form&gt;</code> tag. Key attributes:</p>
+<table>
+  <tr><th>Attribute</th><th>Purpose</th></tr>
+  <tr><td><code>action</code></td><td>URL of the server-side script that processes the form data. Defaults to current page if omitted.</td></tr>
+  <tr><td><code>method</code></td><td>How data is sent: <code>get</code> or <code>post</code>. Defaults to GET.</td></tr>
+  <tr><td><code>target</code></td><td>Where to display the result: <code>_self</code> (default), <code>_blank</code>, <code>_parent</code>, <code>_top</code></td></tr>
+  <tr><td><code>name</code></td><td>Name of the form</td></tr>
+  <tr><td><code>autocomplete</code></td><td>Enables/disables browser autocomplete (<code>on</code> / <code>off</code>)</td></tr>
+  <tr><td><code>novalidate</code></td><td>Disables HTML5 built-in validation</td></tr>
+</table>
+
+<h3>GET vs. POST Method</h3>
+<table>
+  <tr><th>Method</th><th>How It Works</th><th>When to Use</th></tr>
+  <tr>
+    <td><code>GET</code></td>
+    <td>Appends form data to the URL after a <code>?</code> character in a single step.</td>
+    <td>Small forms with short fields; easier for beginners.</td>
+  </tr>
+  <tr>
+    <td><code>POST</code></td>
+    <td>Sends data in a separate transmission after contacting the server.</td>
+    <td>Forms with many/long fields; sensitive data (passwords, credit cards); more secure.</td>
+  </tr>
+</table>
+
+<pre><code>&lt;form action="/action_page.php" method="get"&gt;...&lt;/form&gt;
+&lt;form action="/action_page.php" method="post" target="_blank"&gt;...&lt;/form&gt;</code></pre>
+
+<div class="note"><strong>Note:</strong> Each input field must have a <code>name</code> attribute or its data will not be submitted.</div>
+
+<!-- ============================================================ -->
+<h2>The &lt;input&gt; Element</h2>
+<p>The most important form element. Its appearance depends on the <code>type</code> attribute.</p>
+
+<h3>Common Input Types</h3>
+<table>
+  <tr><th>Type</th><th>Description</th></tr>
+  <tr><td><code>type="text"</code></td><td>One-line text input (default width: 20 characters)</td></tr>
+  <tr><td><code>type="password"</code></td><td>Password field — characters are masked</td></tr>
+  <tr><td><code>type="radio"</code></td><td>Radio button — user selects <strong>only one</strong> from a group</td></tr>
+  <tr><td><code>type="checkbox"</code></td><td>Checkbox — user selects <strong>zero or more</strong> options</td></tr>
+  <tr><td><code>type="submit"</code></td><td>Submits the form to the action handler</td></tr>
+  <tr><td><code>type="reset"</code></td><td>Resets all form values to their defaults</td></tr>
+  <tr><td><code>type="button"</code></td><td>A generic clickable button</td></tr>
+</table>
+
+<h3>HTML5 New Input Types</h3>
+<p>These behave as <code>type="text"</code> in older browsers:</p>
+<ul>
+  <li><code>color</code> – color picker</li>
+  <li><code>date</code>, <code>datetime-local</code>, <code>month</code>, <code>time</code>, <code>week</code> – date/time selectors</li>
+  <li><code>email</code>, <code>url</code>, <code>tel</code> – text with built-in format validation</li>
+  <li><code>number</code>, <code>range</code> – numeric inputs</li>
+  <li><code>search</code> – search field</li>
+</ul>
+
+<h3>Input Type Examples</h3>
+<pre><code>&lt;!-- Text --&gt;
+&lt;form&gt;
+  &lt;label for="fname"&gt;First name:&lt;/label&gt;
+  &lt;input type="text" id="fname" name="fname"&gt;
+  &lt;label for="lname"&gt;Last name:&lt;/label&gt;
+  &lt;input type="text" id="lname" name="lname"&gt;
+&lt;/form&gt;
+
+&lt;!-- Password --&gt;
+&lt;input type="password" id="pwd" name="pwd"&gt;
+
+&lt;!-- Radio Buttons --&gt;
+&lt;input type="radio" id="male" name="gender" value="male" checked&gt;
+&lt;label for="male"&gt;Male&lt;/label&gt;
+&lt;input type="radio" id="female" name="gender" value="female"&gt;
+&lt;label for="female"&gt;Female&lt;/label&gt;
+
+&lt;!-- Checkboxes --&gt;
+&lt;input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"&gt;
+&lt;label for="vehicle1"&gt;I have a bike&lt;/label&gt;
+&lt;input type="checkbox" id="vehicle2" name="vehicle2" value="Car"&gt;
+&lt;label for="vehicle2"&gt;I have a car&lt;/label&gt;
+
+&lt;!-- Submit and Reset --&gt;
+&lt;input type="submit" value="Submit"&gt;
+&lt;input type="reset" value="Reset"&gt;
+
+&lt;!-- Button --&gt;
+&lt;input type="button" onclick="alert('Hello World!')" value="Click Me!"&gt;
+
+&lt;!-- Color Picker (HTML5) --&gt;
+&lt;input type="color" id="favcolor" name="favcolor"&gt;</code></pre>
+
+<!-- ============================================================ -->
+<h2>The &lt;label&gt; Element</h2>
+<ul>
+  <li>Defines a label for a form element.</li>
+  <li>Useful for screen readers — reads the label aloud when the input is focused.</li>
+  <li>Clicking the label text toggles associated radio buttons or checkboxes.</li>
+  <li>The <code>for</code> attribute must match the <code>id</code> of the input to bind them.</li>
+</ul>
+<pre><code>&lt;label for="fname"&gt;First name:&lt;/label&gt;
+&lt;input type="text" id="fname" name="fname"&gt;</code></pre>
+
+<!-- ============================================================ -->
+<h2>Input Attributes</h2>
+<table>
+  <tr><th>Attribute</th><th>Purpose</th><th>Example</th></tr>
+  <tr><td><code>value</code></td><td>Sets the initial/default value</td><td><code>value="Nicole"</code></td></tr>
+  <tr><td><code>readonly</code></td><td>Field is visible but cannot be changed</td><td><code>readonly</code></td></tr>
+  <tr><td><code>disabled</code></td><td>Field is unusable and not submitted</td><td><code>disabled</code></td></tr>
+  <tr><td><code>size</code></td><td>Visible width in characters</td><td><code>size="50"</code></td></tr>
+  <tr><td><code>maxlength</code></td><td>Maximum number of characters allowed</td><td><code>maxlength="50"</code></td></tr>
+  <tr><td><code>placeholder</code></td><td>Hint text shown before user types</td><td><code>placeholder="Enter name"</code></td></tr>
+  <tr><td><code>required</code></td><td>Field must be filled before submitting</td><td><code>required</code></td></tr>
+  <tr><td><code>autofocus</code></td><td>Field is auto-focused on page load</td><td><code>autofocus</code></td></tr>
+  <tr><td><code>autocomplete</code></td><td>Enable/disable autocomplete for field</td><td><code>autocomplete="off"</code></td></tr>
+  <tr><td><code>min</code> / <code>max</code></td><td>Minimum/maximum value (number, date)</td><td><code>min="1" max="10"</code></td></tr>
+  <tr><td><code>pattern</code></td><td>Regex pattern the value must match</td><td><code>pattern="[A-Za-z]{3}"</code></td></tr>
+  <tr><td><code>multiple</code></td><td>Allow multiple values (email, file)</td><td><code>multiple</code></td></tr>
+  <tr><td><code>step</code></td><td>Allowed number intervals</td><td><code>step="2"</code></td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2>Other Form Elements</h2>
+
+<h3>&lt;select&gt; — Drop-down List</h3>
+<pre><code>&lt;select name="movies" id="movies"&gt;
+  &lt;option value="Ten"&gt;Ten Things I Hate About You&lt;/option&gt;
+  &lt;option value="Fifty" selected&gt;Fifty First Dates&lt;/option&gt;
+  &lt;option value="Dreams"&gt;What Dreams May Come&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;!-- Show 3 visible options --&gt;
+&lt;select name="cars" size="3"&gt;...&lt;/select&gt;
+
+&lt;!-- Allow multiple selections --&gt;
+&lt;select id="cars" name="cars" size="4" multiple&gt;...&lt;/select&gt;</code></pre>
+
+<h3>&lt;textarea&gt; — Multi-line Text Input</h3>
+<pre><code>&lt;textarea id="message" name="message" rows="10" cols="30"&gt;
+The cat was playing in the garden.
+&lt;/textarea&gt;
+
+&lt;!-- Or size with CSS --&gt;
+&lt;textarea name="message" style="width:200px; height:600px"&gt;&lt;/textarea&gt;</code></pre>
+<ul>
+  <li><code>rows</code> – visible number of lines</li>
+  <li><code>cols</code> – visible character width</li>
+</ul>
+
+<h3>&lt;fieldset&gt; and &lt;legend&gt;</h3>
+<p>Group related form fields with a visible border and caption.</p>
+<pre><code>&lt;form action="/action_page.php"&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Personal Information:&lt;/legend&gt;
+    &lt;label for="fname"&gt;First name:&lt;/label&gt;
+    &lt;input type="text" id="fname" name="fname" value="Nicole"&gt;&lt;br&gt;
+    &lt;label for="lname"&gt;Last name:&lt;/label&gt;
+    &lt;input type="text" id="lname" name="lname" value="Pascual"&gt;&lt;br&gt;&lt;br&gt;
+    &lt;input type="submit" value="Submit"&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+
+<!-- ============================================================ -->
+<h2>Creating Effective Forms</h2>
+<ul>
+  <li><strong>Browser Constraints:</strong> Adjust text-input sizes to hint at expected input (e.g., 5-char zip codes). Use checkboxes, radio buttons, and selection lists to narrow user choices.</li>
+  <li><strong>Handling Limited Displays:</strong> Structure forms into 2–3 logical sections. Avoid wide input elements that require horizontal scrolling.</li>
+  <li><strong>User-Interface Considerations:</strong> Group input elements logically. Use consistent, well-written labels and prompts.</li>
+  <li><strong>Creating Forms That Flow:</strong> Lead the user naturally through data entry in a logical order (name before address, etc.). Test on multiple browsers with real users.</li>
+</ul>
+
+<!-- ============================================================ -->
+<h2>HTML Multimedia</h2>
+<p>Multimedia on the web includes sound, music, videos, movies, and animations. Files are identified by their extension (e.g., <code>.mp3</code>, <code>.mp4</code>, <code>.wav</code>, <code>.ogg</code>).</p>
+
+<h3>Audio Formats</h3>
+<table>
+  <tr><th>Format</th><th>Extension</th><th>Notes</th></tr>
+  <tr><td>MP3</td><td><code>.mp3</code></td><td>Most popular; good compression + quality; supported by all browsers</td></tr>
+  <tr><td>MP4</td><td><code>.mp4</code></td><td>Primarily video but also supports audio; supported by all browsers</td></tr>
+  <tr><td>Ogg</td><td><code>.ogg</code></td><td>Developed by Xiph.Org; supported by HTML5</td></tr>
+  <tr><td>AAC</td><td><code>.aac</code></td><td>Apple's default format for iTunes; not widely supported in browsers</td></tr>
+  <tr><td>MIDI</td><td><code>.mid / .midi</code></td><td>Digital notes (not actual sound); not supported in web browsers</td></tr>
+</table>
+
+<h3>Audio Browser Support</h3>
+<table>
+  <tr><th>Browser</th><th>MP3</th><th>WAV</th><th>Ogg</th></tr>
+  <tr><td>Internet Explorer</td><td>YES</td><td>NO</td><td>NO</td></tr>
+  <tr><td>Chrome</td><td>YES</td><td>YES</td><td>YES</td></tr>
+  <tr><td>Firefox</td><td>YES</td><td>YES</td><td>YES</td></tr>
+  <tr><td>Safari</td><td>YES</td><td>YES</td><td>NO</td></tr>
+</table>
+
+<h3>The &lt;audio&gt; Element</h3>
+<p>HTML5 standard way to embed audio without a plug-in.</p>
+<pre><code>&lt;audio controls&gt;
+  &lt;source src="RememberMe.mp3" type="audio/mpeg"&gt;
+  Your browser does not support the audio element.
+&lt;/audio&gt;</code></pre>
+<ul>
+  <li><code>controls</code> – displays play, pause, and volume controls</li>
+  <li>The <code>&lt;source&gt;</code> element lets you list multiple formats; the browser uses the first it recognizes</li>
+  <li>Text inside <code>&lt;audio&gt;&lt;/audio&gt;</code> is shown only in browsers that don't support the element</li>
+</ul>
+
+<h3>Video Formats</h3>
+<table>
+  <tr><th>Format</th><th>Extension</th><th>Notes</th></tr>
+  <tr><td>MP4</td><td><code>.mp4</code></td><td>Recommended format; supported by all HTML5 browsers and YouTube</td></tr>
+  <tr><td>WebM</td><td><code>.webm</code></td><td>Developed by Mozilla, Opera, Adobe, Google; supported by HTML5</td></tr>
+  <tr><td>Ogg/Theora</td><td><code>.ogg</code></td><td>Developed by Xiph.Org; supported by HTML5</td></tr>
+</table>
+
+<h3>Video Browser Support</h3>
+<table>
+  <tr><th>Browser</th><th>MP4</th><th>WebM</th><th>Ogg</th></tr>
+  <tr><td>Internet Explorer</td><td>YES</td><td>NO</td><td>NO</td></tr>
+  <tr><td>Chrome</td><td>YES</td><td>YES</td><td>YES</td></tr>
+  <tr><td>Firefox</td><td>YES</td><td>YES</td><td>YES</td></tr>
+  <tr><td>Safari</td><td>YES</td><td>NO</td><td>NO</td></tr>
+</table>
+
+<h3>The &lt;video&gt; Element</h3>
+<pre><code>&lt;video width="320" height="240" controls&gt;
+  &lt;source src="Feast.mp4" type="video/mp4"&gt;
+  Your browser does not support the video tag.
+&lt;/video&gt;
+
+&lt;!-- Autoplay (does not work on mobile) --&gt;
+&lt;video width="320" height="240" autoplay&gt;
+  &lt;source src="movie.mp4" type="video/mp4"&gt;
+  Your browser does not support the video tag.
+&lt;/video&gt;</code></pre>
+<div class="note"><strong>Tip:</strong> Always include <code>width</code> and <code>height</code> to prevent page flickering while the video loads.</div>
+
+<!-- ============================================================ -->
+<h2>HTML Helpers (Plug-ins)</h2>
+<p>Helper applications extend browser functionality. They can be added via <code>&lt;object&gt;</code> or <code>&lt;embed&gt;</code> tags.</p>
+
+<h3>The &lt;object&gt; Element</h3>
+<p>Supported by all browsers. Embeds plug-ins, PDFs, Flash, other HTML, or images.</p>
+<pre><code>&lt;!-- Embed a Flash/SWF file --&gt;
+&lt;object width="400" height="200" data="banners.swf"&gt;&lt;/object&gt;
+
+&lt;!-- Embed another HTML page --&gt;
+&lt;object width="100%" height="500px" data="images1.html"&gt;&lt;/object&gt;
+
+&lt;!-- Embed an image --&gt;
+&lt;object data="panda.png"&gt;&lt;/object&gt;</code></pre>
+
+<h3>The &lt;embed&gt; Element</h3>
+<p>Supported by all major browsers (officially part of HTML5). Has no closing tag and cannot contain alternative text.</p>
+<pre><code>&lt;embed width="400" height="50" src="banners.swf"&gt;
+&lt;embed width="100%" height="500px" src="images1.html"&gt;
+&lt;embed src="panda.png"&gt;</code></pre>
+
+<!-- ============================================================ -->
+<h2>References</h2>
+<ul>
+  <li>Dean, J. (2018). <em>Web Programming with HTML5, CSS, and JavaScript.</em></li>
+  <li>Castro, E., &amp; Hyslop, B. (2013). <em>HTML and CSS: Visual QuickStart Guide.</em> Peachpit Press.</li>
+  <li>Carey, P. (2018). <em>New Perspectives on HTML5, CSS3, and JavaScript.</em> Cengage Learning.</li>
+  <li>Parker, J. (2021). <em>HTML for Beginners.</em></li>
+  <li>W3Schools online web tutorials. <a href="https://www.w3schools.com/" target="_blank">https://www.w3schools.com/</a></li>
+  <li>Sklar, J. (2012). <em>Web Design Principles.</em></li>
+  <li>Plumley, G. (2011). <em>Website Design and Development.</em> Wiley Pub.</li>
+</ul>
+
+</body>
+</html>
